@@ -136,8 +136,15 @@ section{padding:9rem 8%}
 /* ---------- vault ---------- */
 .vault{background:var(--bg); background-size:cover; background-position:center; background-repeat:no-repeat; text-align:center; min-height:70vh; display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:1rem; position:relative}
-.vault-door{width:180px; height:260px; border:1px solid rgba(217,208,189,.25); border-top-left-radius:90px;
-  border-top-right-radius:90px; box-shadow:0 0 80px 10px rgba(169,131,90,.15) inset; margin-bottom:1rem}
+.vault-door{
+  width:180px;
+  height:260px;
+  border:1px solid rgba(217,208,189,.25);
+  border-radius:0;
+  background:url("351912460468578.jpg") center/cover no-repeat;
+  box-shadow:0 0 80px 10px rgba(169,131,90,.15) inset;
+  margin-bottom:1rem;
+}
 .vault h2{font-family:var(--serif); font-size:2.4rem; color:var(--ivory)}
 .vault p{font-family:var(--serif); font-style:italic; color:var(--marble)}
 
