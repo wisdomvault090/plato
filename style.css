@@ -175,19 +175,18 @@ section{padding:9rem 8%}
   .g-large{grid-row:auto}
   .hero-columns{display:none}
 }
-/* Archive image + mobile responsive */
 .archive-image {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  display: block !important;
+  width: 70% !important;
+  max-width: 500px !important;
+  height: auto !important;
+  margin: 30px auto 0 !important;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .archive-image {
-    width: 90%;
-    max-width: 400px;
+    width: 65vw !important;
+    max-width: 280px !important;
+    height: auto !important;
   }
 }
