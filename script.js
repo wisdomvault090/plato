@@ -22,7 +22,7 @@ const quotes = [
   { quote: "Knowing yourself is the beginning of all wisdom.", author: "Aristotle", era: "Classical Greece, Philosophy" },
   { quote: "What we achieve inwardly will change outer reality.", author: "Plutarch", era: "Ancient Greece, Philosophy" },
   { quote: "The soul becomes dyed with the color of its thoughts.", author: "Marcus Aurelius", era: "Ancient Rome, Stoicism" },
-  { quote: "Courage is knowing what not to fear.", author: "Plato", era: "Classical Greece, Philosophy" }
+  { quote: "Courage is knowing what not to fear.", author: "Plato", era: "Classical Greece, Philosophy" },
      { quote: "The greatest wealth is to live content with little.", author: "Plato", era: "Classical Greece, Philosophy" },
   { quote: "We are what we repeatedly do.", author: "Aristotle", era: "Classical Greece, Philosophy" },
   { quote: "Difficulties strengthen the mind, as labor does the body.", author: "Seneca", era: "Ancient Rome, Stoicism" },
