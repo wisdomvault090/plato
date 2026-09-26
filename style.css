@@ -175,3 +175,19 @@ section{padding:9rem 8%}
   .g-large{grid-row:auto}
   .hero-columns{display:none}
 }
+/* Archive image + mobile responsive */
+.archive-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .archive-image {
+    width: 90%;
+    max-width: 400px;
+  }
+}
