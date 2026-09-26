@@ -190,7 +190,7 @@ function renderQuote() {
     qText.textContent = `“${q.quote}”`;
     qAuthor.textContent = q.author;
     qEra.textContent = q.era;
-    qCount.textContent = `${pad(qi + 1)} / ${pad(quotes.length)}`;
+    
 
     chamberQuote.classList.remove('fading');
   }, 180);
