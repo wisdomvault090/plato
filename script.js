@@ -46,34 +46,46 @@ const quotes = [
   ];
 
 let qi = 0;
+
 const qText = document.getElementById('quoteText');
 const qAuthor = document.getElementById('quoteAuthor');
 const qEra = document.getElementById('quoteEra');
 const qCount = document.getElementById('quoteCount');
 const chamberQuote = document.querySelector('.chamber-quote');
+
 const pad = n => String(n).padStart(2, '0');
 
-function renderQuote(){
-  if (!chamberQuote) return;
+function renderQuote() {
+  if (!chamberQuote || !quotes.length) return;
+
   chamberQuote.classList.add('fading');
+
   setTimeout(() => {
     const q = quotes[qi];
-    qText.textContent = `\u201C${q.quote}\u201D`;
+
+    qText.textContent = `“${q.quote}”`;
     qAuthor.textContent = q.author;
     qEra.textContent = q.era;
     qCount.textContent = `${pad(qi + 1)} / ${pad(quotes.length)}`;
+
     chamberQuote.classList.remove('fading');
-  }, 300);
+  }, 180);
 }
 
-document.getElementById('nextQuote')?.addEventListener('click', () => {
-  qi = (qi + 1) % quotes.length;
+/* ---------- RANDOM QUOTE ---------- */
+document.getElementById('randomQuote')?.addEventListener('click', () => {
+
+  let newIndex;
+
+  do {
+    newIndex = Math.floor(Math.random() * quotes.length);
+  } while (quotes.length > 1 && newIndex === qi);
+
+  qi = newIndex;
   renderQuote();
 });
-document.getElementById('prevQuote')?.addEventListener('click', () => {
-  qi = (qi - 1 + quotes.length) % quotes.length;
-  renderQuote();
-});
+
+/* ---------- INITIAL QUOTE ---------- */
 renderQuote();
 
 /* ---------- nav: glass background on scroll ---------- */
