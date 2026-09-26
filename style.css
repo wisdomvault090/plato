@@ -8,7 +8,7 @@
   --BACKGROUND_QUOTE:   linear-gradient(180deg, rgba(10,9,8,.75), rgba(10,9,8,.92)), url('https://picsum.photos/seed/vault-quote/1920/1200?grayscale&blur=2');
   --BACKGROUND_GALLERY: linear-gradient(180deg, rgba(10,9,8,.55), rgba(10,9,8,.9)), url('https://picsum.photos/seed/vault-world/1920/1200?grayscale&blur=1');
   --BACKGROUND_VAULT:   linear-gradient(180deg, rgba(10,9,8,.6), rgba(10,9,8,.95)), url('https://picsum.photos/seed/vault-door/1920/1200?grayscale&blur=2');
-  --THINKER_1: linear-gradient(0deg, rgba(10,9,8,.15), rgba(10,9,8,.05)), url('https://picsum.photos/seed/vault-thinker-1/800/1000?grayscale');
+  --THINKER_1: url("9007268001665154.jpg");
   --THINKER_2: linear-gradient(0deg, rgba(10,9,8,.15), rgba(10,9,8,.05)), url('https://picsum.photos/seed/vault-thinker-2/800/1000?grayscale');
   --THINKER_3: linear-gradient(0deg, rgba(10,9,8,.15), rgba(10,9,8,.05)), url('https://picsum.photos/seed/vault-thinker-3/800/1000?grayscale');
   --GALLERY_1: url('Know Yourself (Socrates).jpg');
