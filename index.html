@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wisdom Vault — An Archive of Human Thought</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <span class="loader-word">WISDOM VAULT</span>
+  <div class="loader-line"><span></span></div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="nav">
+  <span class="nav-mark">Wisdom Vault</span>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#quote">Wisdom</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero" style="--bg: var(--BACKGROUND_HERO)">
+  <div class="hero-parallax" id="heroParallax">
+    <div class="hero-fog" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </div>
+    <div class="hero-columns" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">An archive of human thought</p>
+    <h1 class="hero-title">Wisdom<br>Vault</h1>
+    <p class="hero-sub">Ancient words. Enduring ideas.</p>
+  </div>
+  <a href="#archive" class="scroll-cue">
+    <span>Enter the vault</span>
+    <svg width="14" height="24" viewBox="0 0 14 24" aria-hidden="true"><path d="M7 1v20M2 16l5 6 5-6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </a>
+</header>
+
+<!-- ============ ARCHIVE ============ -->
+<section class="archive reveal" id="archive">
+  <p class="label">The Archive</p>
+  <h2 class="statement">Some ideas outlive the civilizations that created them.</h2>
+  <p class="lede">Long after the marble has cracked and the temples have fallen quiet, the sentences remain — copied by hand, argued over, carried across centuries by people who needed them. Wisdom Vault is where those sentences are kept.</p>
+</section>
+
+<!-- ============ QUOTE CHAMBER ============ -->
+<section class="chamber reveal" id="quote" style="--bg: var(--BACKGROUND_QUOTE)">
+  <div class="chamber-mark" aria-hidden="true">&rdquo;</div>
+  <blockquote class="chamber-quote">
+    <p id="quoteText">The unexamined life is not worth living.</p>
+    <footer>
+      <cite id="quoteAuthor">Socrates</cite>
+      <span id="quoteEra">Classical Greece, Philosophy</span>
+    </footer>
+  </blockquote>
+  <div class="chamber-controls">
+    <button id="prevQuote" aria-label="Previous quote">←</button>
+    <span id="quoteCount">01 / 08</span>
+    <button id="nextQuote" aria-label="Next quote">→</button>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHERS ============ -->
+<section class="thinkers reveal" id="thinkers">
+  <p class="label">Philosophers &amp; Poets</p>
+  <div class="thinker-grid">
+    <article class="thinker-card" style="--bg: var(--THINKER_1)" tabindex="0">
+      <div class="thinker-meta"><h3>Seneca</h3><p>Rome, Stoicism</p><span>Letters written to outlast an empire.</span></div>
+    </article>
+    <article class="thinker-card" style="--bg: var(--THINKER_2)" tabindex="0">
+      <div class="thinker-meta"><h3>Laozi</h3><p>China, Taoism</p><span>Stillness rendered as instruction.</span></div>
+    </article>
+    <article class="thinker-card" style="--bg: var(--THINKER_3)" tabindex="0">
+      <div class="thinker-meta"><h3>Sappho</h3><p>Lesbos, Poetry</p><span>Fragments that survived on reputation alone.</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ANCIENT WORLD ============ -->
+<section class="world reveal" id="world" style="--bg: var(--BACKGROUND_GALLERY)">
+  <div class="world-copy">
+    <p class="label">The World They Left Behind</p>
+    <p class="lede">Columns still standing without their roofs. Statues missing the arms that once gestured. What remains was never the point — it is what they thought that outlasted what they built.</p>
+  </div>
+</section>
+
+<!-- ============ THE VAULT ============ -->
+<section class="vault reveal" id="vault" style="--bg: var(--BACKGROUND_VAULT)">
+  <div class="vault-door" aria-hidden="true"></div>
+  <h2>The Vault</h2>
+  <p>Where words are kept beyond their time.</p>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery reveal" id="gallery">
+  <p class="label">Gallery</p>
+  <div class="gallery-grid">
+    <figure class="g-item g-large" data-title="The Long Colonnade" data-desc="Light falling through a row of columns at midday." style="--bg: var(--GALLERY_1)" tabindex="0"></figure>
+    <figure class="g-item" data-title="Fragment, Unattributed" data-desc="A carved hand, most of the statue lost to time." style="--bg: var(--GALLERY_2)" tabindex="0"></figure>
+    <figure class="g-item" data-title="The Inner Court" data-desc="Where scrolls were once read aloud." style="--bg: var(--GALLERY_3)" tabindex="0"></figure>
+    <figure class="g-item" data-title="Distant Ruin" data-desc="Seen from the road at dusk." style="--bg: var(--GALLERY_4)" tabindex="0"></figure>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <div class="lb-body">
+    <div class="lb-img" id="lbImg"></div>
+    <h3 id="lbTitle"></h3>
+    <p id="lbDesc"></p>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="about">
+  <h2>Wisdom Vault</h2>
+  <p>Every word kept.<br>Every voice remembered.</p>
+  <ul class="footer-links">
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#quote">Wisdom</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <p class="footer-fine">Wisdom Vault is an independent archive project.</p>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
