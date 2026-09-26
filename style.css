@@ -71,7 +71,7 @@ a{color:inherit}
 .hero-vignette{position:absolute; inset:0; z-index:2; background:radial-gradient(120% 90% at 50% 100%, rgba(0,0,0,.55), transparent 60%)}
 .hero-copy{position:relative; z-index:3; padding:0 6%}
 .eyebrow{font-size:.78rem; letter-spacing:.22em; color:var(--bronze); margin-bottom:1.4rem; text-transform:uppercase}
-.hero-title{font-family:var(--serif); font-weight:500; font-size:clamp(3.4rem,11vw,8.5rem);
+.hero-title{font-family:var(--serif); font-weight:500; font-size:clamp(4rem,12vw,10rem); text-shadow: 0 0 30px rgba(169,131,90,.25);
   line-height:.95; color:var(--ivory); animation:riseIn 1.3s ease .3s both}
 @keyframes riseIn{from{opacity:0; transform:translateY(24px)}to{opacity:1; transform:translateY(0)}}
 .hero-sub{font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--marble); margin-top:1.6rem; opacity:.85}
