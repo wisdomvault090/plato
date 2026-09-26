@@ -175,7 +175,6 @@ let qi = 0;
 const qText = document.getElementById('quoteText');
 const qAuthor = document.getElementById('quoteAuthor');
 const qEra = document.getElementById('quoteEra');
-const qCount = document.getElementById('quoteCount');
 const chamberQuote = document.querySelector('.chamber-quote');
 
 const pad = n => String(n).padStart(2, '0');
