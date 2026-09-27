@@ -1255,3 +1255,20 @@ font-size:1.5rem;
   }
 
 }
+/* ===== IMAGE TRIO BACKGROUND ===== */
+
+.final-image-trio {
+  position: relative;
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 10, 0.72),
+      rgba(10, 10, 10, 0.72)
+    ),
+    url("Emotional Freedom vs_ Financial Freedom _ The Philosopher and The King.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 100px 5vw;
+}
