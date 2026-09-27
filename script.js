@@ -1195,6 +1195,12 @@ const sinData = {
     description: 'Pride blinds a man to his own flaws, until the mirror becomes his greatest enemy.'
   }
 };
+greed: {
+  title: 'Greed',
+  latin: 'Avaritia',
+  image: 'teymuribra_spirit_of_greed_next_to_a_pile_of_gold.jpg',
+  description: 'Greed is the endless hunger for more—more wealth, more power, more possession. It convinces a person that no amount is ever enough, turning abundance into emptiness and desire into a prison.'
+},
 
 document.querySelectorAll('.sin-card').forEach(button => {
 
