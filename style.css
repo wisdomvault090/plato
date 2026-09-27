@@ -1323,11 +1323,6 @@ font-size:1.5rem;
   background-repeat: no-repeat;
 }
 .footer-quote {
-  margin: 28px auto 0;
-  max-width: 850px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(26px, 3.5vw, 44px);
   font-weight: 900;
-  line-height: 1.15;
   text-align: center;
 }
