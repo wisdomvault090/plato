@@ -1188,49 +1188,57 @@ const sinLatin = document.getElementById('sinChamberLatin');
 const sinDescription = document.getElementById('sinChamberDescription');
 
 const sinData = {
+
   pride: {
     title: 'Pride',
     latin: 'Superbia',
     image: '1407443630905626 (1).jpg',
     description: 'Pride blinds a man to his own flaws, until the mirror becomes his greatest enemy.'
+  },
+
+  greed: {
+    title: 'Greed',
+    latin: 'Avaritia',
+    image: 'teymuribra_spirit_of_greed_next_to_a_pile_of_gold.jpg',
+    description: 'Greed is the endless hunger for more—more wealth, more power, more possession. It convinces a person that no amount is ever enough, turning abundance into emptiness and desire into a prison.'
+  },
+
+  lust: {
+    title: 'Lust',
+    latin: 'Luxuria',
+    image: 'lust kills.jpg',
+    description: 'Lust is the uncontrolled desire for pleasure. When desire rules the mind, people begin to treat others as objects rather than souls, sacrificing wisdom, dignity, and purpose for momentary satisfaction.'
+  },
+
+  envy: {
+    title: 'Envy',
+    latin: 'Invidia',
+    image: 'Obsession.jpg',
+    description: 'Envy is the sorrow felt at another person’s success, beauty, or happiness. Instead of inspiring growth, it poisons the heart with comparison, making a person blind to their own blessings.'
+  },
+
+  gluttony: {
+    title: 'Gluttony',
+    latin: 'Gula',
+    image: 'This relates to greed because the man in the….jpg',
+    description: 'Gluttony is the excessive consumption of more than one truly needs. It is not merely hunger for food, but a refusal to practice restraint, allowing appetite to rule over reason.'
+  },
+
+  wrath: {
+    title: 'Wrath',
+    latin: 'Ira',
+    image: 'Sin of Wrath.jpg',
+    description: 'Wrath is uncontrolled anger that seeks destruction rather than justice. It blinds reason, fuels hatred, and turns a moment of rage into consequences that can last a lifetime.'
+  },
+
+  sloth: {
+    title: 'Sloth',
+    latin: 'Acedia',
+    image: 'sin of sloth.jpg',
+    description: 'Sloth is the surrender of one’s potential through laziness, apathy, and neglect. It is not mere rest, but the refusal to act when action is needed, allowing life to pass by unused.'
   }
+
 };
-greed: {
-  title: 'Greed',
-  latin: 'Avaritia',
-  image: 'teymuribra_spirit_of_greed_next_to_a_pile_of_gold.jpg',
-  description: 'Greed is the endless hunger for more—more wealth, more power, more possession. It convinces a person that no amount is ever enough, turning abundance into emptiness and desire into a prison.'
-},
-lust: {
-  title: 'Lust',
-  latin: 'Luxuria',
-  image: 'lust kills.jpg',
-  description: 'Lust is the uncontrolled desire for pleasure. When desire rules the mind, people begin to treat others as objects rather than souls, sacrificing wisdom, dignity, and purpose for momentary satisfaction.'
-},
-envy: {
-  title: 'Envy',
-  latin: 'Invidia',
-  image: 'Obsession.jpg',
-  description: 'Envy is the sorrow felt at another person’s success, beauty, or happiness. Instead of inspiring growth, it poisons the heart with comparison, making a person blind to their own blessings.'
-},
-gluttony: {
-  title: 'Gluttony',
-  latin: 'Gula',
-  image: 'This relates to greed because the man in the….jpg',
-  description: 'Gluttony is the excessive consumption of more than one truly needs. It is not merely hunger for food, but a refusal to practice restraint, allowing appetite to rule over reason.'
-},
-wrath: {
-  title: 'Wrath',
-  latin: 'Ira',
-  image: 'Sin of Wrath.jpg',
-  description: 'Wrath is uncontrolled anger that seeks destruction rather than justice. It blinds reason, fuels hatred, and turns a moment of rage into consequences that can last a lifetime.'
-},
-sloth: {
-  title: 'Sloth',
-  latin: 'Acedia',
-  image: 'sin of sloth.jpg',
-  description: 'Sloth is the surrender of one’s potential through laziness, apathy, and neglect. It is not mere rest, but the refusal to act when action is needed, allowing life to pass by unused.'
-},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
