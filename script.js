@@ -1207,6 +1207,12 @@ lust: {
   image: 'lust kills.jpg',
   description: 'Lust is the uncontrolled desire for pleasure. When desire rules the mind, people begin to treat others as objects rather than souls, sacrificing wisdom, dignity, and purpose for momentary satisfaction.'
 },
+envy: {
+  title: 'Envy',
+  latin: 'Invidia',
+  image: 'Obsession.jpg',
+  description: 'Envy is the sorrow felt at another person’s success, beauty, or happiness. Instead of inspiring growth, it poisons the heart with comparison, making a person blind to their own blessings.'
+},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
