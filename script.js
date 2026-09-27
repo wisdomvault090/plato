@@ -1290,3 +1290,20 @@ document.addEventListener('keydown', (e) => {
   }
 
 });
+const brainBtn = document.getElementById("brainBtn");
+const brainPopup = document.getElementById("brainPopup");
+const brainClose = document.getElementById("brainClose");
+
+brainBtn?.addEventListener("click", () => {
+  brainPopup.classList.add("open");
+});
+
+brainClose?.addEventListener("click", () => {
+  brainPopup.classList.remove("open");
+});
+
+brainPopup?.addEventListener("click", (e) => {
+  if(e.target === brainPopup){
+    brainPopup.classList.remove("open");
+  }
+});
