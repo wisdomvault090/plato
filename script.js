@@ -1192,7 +1192,7 @@ const sinData = {
     title: 'Pride',
     latin: 'Superbia',
     image: '1407443630905626 (1).jpg',
-    description: 'Description of Pride will appear here.'
+    description: 'Pride blinds a man to his own flaws, until the mirror becomes his greatest enemy.'
   }
 };
 
