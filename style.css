@@ -328,17 +328,24 @@ section{padding:9rem 8%}
 /* =========================================================
    WISDOM THEMES — LUXURY ARCHIVE
 ========================================================= */
-
 .themes{
 position:relative;
 padding:10rem 8%;
 text-align:center;
 overflow:hidden;
+
 background:
-radial-gradient(circle at top,
-rgba(169,131,90,.08),
-transparent 45%),
-var(--obsidian);
+linear-gradient(
+180deg,
+rgba(10,9,8,.75),
+rgba(10,9,8,.92)
+),
+url("585890232792637023.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 }
 
 .themes::before{
