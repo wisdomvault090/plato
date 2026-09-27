@@ -1219,6 +1219,12 @@ gluttony: {
   image: 'This relates to greed because the man in the….jpg',
   description: 'Gluttony is the excessive consumption of more than one truly needs. It is not merely hunger for food, but a refusal to practice restraint, allowing appetite to rule over reason.'
 },
+wrath: {
+  title: 'Wrath',
+  latin: 'Ira',
+  image: 'Sin of Wrath.jpg',
+  description: 'Wrath is uncontrolled anger that seeks destruction rather than justice. It blinds reason, fuels hatred, and turns a moment of rage into consequences that can last a lifetime.'
+},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
