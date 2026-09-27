@@ -1225,6 +1225,12 @@ wrath: {
   image: 'Sin of Wrath.jpg',
   description: 'Wrath is uncontrolled anger that seeks destruction rather than justice. It blinds reason, fuels hatred, and turns a moment of rage into consequences that can last a lifetime.'
 },
+sloth: {
+  title: 'Sloth',
+  latin: 'Acedia',
+  image: 'sin of sloth.jpg',
+  description: 'Sloth is the surrender of one’s potential through laziness, apathy, and neglect. It is not mere rest, but the refusal to act when action is needed, allowing life to pass by unused.'
+},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
