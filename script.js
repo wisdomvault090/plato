@@ -211,7 +211,885 @@ document.getElementById('randomQuote')?.addEventListener('click', () => {
 
 /* ---------- INITIAL QUOTE ---------- */
 renderQuote();
+/* =========================================================
+   LOVE CATEGORY
+========================================================= */
 
+const themeQuotes = {
+
+love: [
+
+{
+quote:"Love is composed of a single soul inhabiting two bodies.",
+author:"Aristotle"
+},
+
+{
+quote:"Where there is love there is life.",
+author:"Mahatma Gandhi"
+},
+
+{
+quote:"The giving of love is an education in itself.",
+author:"Eleanor Roosevelt"
+},
+
+{
+quote:"To love and be loved is to feel the sun from both sides.",
+author:"David Viscott"
+},
+
+{
+quote:"The greatest happiness of life is the conviction that we are loved.",
+author:"Victor Hugo"
+},
+
+{
+quote:"Love does not dominate; it cultivates.",
+author:"Johann Wolfgang von Goethe"
+},
+
+{
+quote:"Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
+author:"Lao Tzu"
+},
+
+{
+quote:"Love is friendship that has caught fire.",
+author:"Ann Landers"
+},
+
+{
+quote:"Love recognizes no barriers.",
+author:"Maya Angelou"
+},
+
+{
+quote:"The best thing to hold onto in life is each other.",
+author:"Audrey Hepburn"
+},
+
+{
+quote:"A loving heart is the truest wisdom.",
+author:"Charles Dickens"
+},
+
+{
+quote:"Love is the only force capable of transforming an enemy into a friend.",
+author:"Martin Luther King Jr."
+},
+
+{
+quote:"Love all, trust a few, do wrong to none.",
+author:"William Shakespeare"
+},
+
+{
+quote:"The heart has its reasons which reason knows nothing of.",
+author:"Blaise Pascal"
+},
+
+{
+quote:"Love cures people, both the ones who give it and the ones who receive it.",
+author:"Karl Menninger"
+},
+
+{
+quote:"There is always some madness in love.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"At the touch of love everyone becomes a poet.",
+author:"Plato"
+},
+
+{
+quote:"Love seeks not itself to please.",
+author:"William Blake"
+},
+
+{
+quote:"We accept the love we think we deserve.",
+author:"Stephen Chbosky"
+},
+
+{
+quote:"The more one judges, the less one loves.",
+author:"Honoré de Balzac"
+}
+
+],
+discipline: [
+
+{
+quote:"You have power over your mind, not outside events.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"Waste no more time arguing about what a good man should be. Be one.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"If it is not right, do not do it; if it is not true, do not say it.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"No man is free who is not master of himself.",
+author:"Epictetus"
+},
+
+{
+quote:"First say to yourself what you would be; and then do what you have to do.",
+author:"Epictetus"
+},
+
+{
+quote:"We are what we repeatedly do. Excellence, then, is not an act but a habit.",
+author:"Aristotle"
+},
+
+{
+quote:"Quality is not an act, it is a habit.",
+author:"Aristotle"
+},
+
+{
+quote:"He who conquers himself is the mightiest warrior.",
+author:"Confucius"
+},
+
+{
+quote:"The more we value things outside our control, the less control we have.",
+author:"Epictetus"
+},
+
+{
+quote:"Luck is what happens when preparation meets opportunity.",
+author:"Seneca"
+},
+
+{
+quote:"Difficulties strengthen the mind, as labour does the body.",
+author:"Seneca"
+},
+
+{
+quote:"Begin at once to live, and count each separate day as a separate life.",
+author:"Seneca"
+},
+
+{
+quote:"It is not that we have a short time to live, but that we waste a lot of it.",
+author:"Seneca"
+},
+
+{
+quote:"Discipline is choosing between what you want now and what you want most.",
+author:"Abraham Lincoln"
+},
+
+{
+quote:"Rule your mind or it will rule you.",
+author:"Horace"
+},
+
+{
+quote:"Small disciplines repeated with consistency lead to great achievements.",
+author:"John C. Maxwell"
+},
+
+{
+quote:"Success is nothing more than a few simple disciplines practiced every day.",
+author:"Jim Rohn"
+},
+
+{
+quote:"The successful person has the habit of doing the things failures do not like to do.",
+author:"Albert E. N. Gray"
+},
+
+{
+quote:"What lies in our power to do, lies in our power not to do.",
+author:"Aristotle"
+},
+
+{
+quote:"Through discipline comes freedom.",
+author:"Aristotle"
+}
+
+],
+success: [
+
+{
+quote:"Try not to become a man of success, but rather try to become a man of value.",
+author:"Albert Einstein"
+},
+
+{
+quote:"Success is not final, failure is not fatal: it is the courage to continue that counts.",
+author:"Winston Churchill"
+},
+
+{
+quote:"The future belongs to those who believe in the beauty of their dreams.",
+author:"Eleanor Roosevelt"
+},
+
+{
+quote:"The only way to do great work is to love what you do.",
+author:"Steve Jobs"
+},
+
+{
+quote:"Innovation distinguishes between a leader and a follower.",
+author:"Steve Jobs"
+},
+
+{
+quote:"Stay hungry, stay foolish.",
+author:"Steve Jobs"
+},
+
+{
+quote:"Success usually comes to those who are too busy to be looking for it.",
+author:"Henry David Thoreau"
+},
+
+{
+quote:"Opportunities don't happen. You create them.",
+author:"Chris Grosser"
+},
+
+{
+quote:"Success is the sum of small efforts repeated day in and day out.",
+author:"Robert Collier"
+},
+
+{
+quote:"Do not wait. The time will never be just right.",
+author:"Napoleon Hill"
+},
+
+{
+quote:"Action is the foundational key to all success.",
+author:"Pablo Picasso"
+},
+
+{
+quote:"The secret of getting ahead is getting started.",
+author:"Mark Twain"
+},
+
+{
+quote:"Success is walking from failure to failure with no loss of enthusiasm.",
+author:"Winston Churchill"
+},
+
+{
+quote:"A goal properly set is halfway reached.",
+author:"Zig Ziglar"
+},
+
+{
+quote:"What you do today can improve all your tomorrows.",
+author:"Ralph Marston"
+},
+
+{
+quote:"The harder I work, the luckier I get.",
+author:"Samuel Goldwyn"
+},
+
+{
+quote:"Dream big and dare to fail.",
+author:"Norman Vaughan"
+},
+
+{
+quote:"The best revenge is massive success.",
+author:"Frank Sinatra"
+},
+
+{
+quote:"Great things are done by a series of small things brought together.",
+author:"Vincent van Gogh"
+},
+
+{
+quote:"Success is getting what you want. Happiness is wanting what you get.",
+author:"Dale Carnegie"
+}
+
+],
+courage: [
+
+{
+quote:"Courage is knowing what not to fear.",
+author:"Plato"
+},
+
+{
+quote:"Fortune favors the bold.",
+author:"Virgil"
+},
+
+{
+quote:"He who is brave is free.",
+author:"Seneca"
+},
+
+{
+quote:"You gain strength, courage, and confidence by every experience in which you really stop to look fear in the face.",
+author:"Eleanor Roosevelt"
+},
+
+{
+quote:"Do one thing every day that scares you.",
+author:"Eleanor Roosevelt"
+},
+
+{
+quote:"It takes courage to grow up and become who you really are.",
+author:"E. E. Cummings"
+},
+
+{
+quote:"The brave man is not he who does not feel afraid, but he who conquers that fear.",
+author:"Nelson Mandela"
+},
+
+{
+quote:"Courage is resistance to fear, mastery of fear, not absence of fear.",
+author:"Mark Twain"
+},
+
+{
+quote:"Success is not final, failure is not fatal: it is the courage to continue that counts.",
+author:"Winston Churchill"
+},
+
+{
+quote:"Fear is a reaction. Courage is a decision.",
+author:"Winston Churchill"
+},
+
+{
+quote:"He who has a why to live can bear almost any how.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"That which does not kill us makes us stronger.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"Courage starts with showing up and letting ourselves be seen.",
+author:"Brené Brown"
+},
+
+{
+quote:"Only those who risk going too far can possibly find out how far one can go.",
+author:"T. S. Eliot"
+},
+
+{
+quote:"A ship is safe in harbor, but that is not what ships are built for.",
+author:"John A. Shedd"
+},
+
+{
+quote:"The best way out is always through.",
+author:"Robert Frost"
+},
+
+{
+quote:"Difficulties show men what they are.",
+author:"Epictetus"
+},
+
+{
+quote:"The obstacle is the way.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"When you arise in the morning, think of what a privilege it is to be alive.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"Courage will now be your best defence against the storm that is at hand.",
+author:"J. R. R. Tolkien"
+}
+
+],
+purpose: [
+
+{
+quote:"He who has a why to live can bear almost any how.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"The mystery of human existence lies not in just staying alive, but in finding something to live for.",
+author:"Fyodor Dostoevsky"
+},
+
+{
+quote:"Become who you are.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"To live is to suffer, to survive is to find some meaning in the suffering.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"Life can only be understood backwards; but it must be lived forwards.",
+author:"Søren Kierkegaard"
+},
+
+{
+quote:"The most common form of despair is not being who you are.",
+author:"Søren Kierkegaard"
+},
+
+{
+quote:"Purity of heart is to will one thing.",
+author:"Søren Kierkegaard"
+},
+
+{
+quote:"Knowing yourself is the beginning of all wisdom.",
+author:"Aristotle"
+},
+
+{
+quote:"The unexamined life is not worth living.",
+author:"Socrates"
+},
+
+{
+quote:"What we achieve inwardly will change outer reality.",
+author:"Plutarch"
+},
+
+{
+quote:"The only journey is the one within.",
+author:"Rainer Maria Rilke"
+},
+
+{
+quote:"What you seek is seeking you.",
+author:"Rumi"
+},
+
+{
+quote:"The wound is the place where the Light enters you.",
+author:"Rumi"
+},
+
+{
+quote:"We have two lives, and the second begins when we realize we have only one.",
+author:"Confucius"
+},
+
+{
+quote:"Act as if what you do makes a difference. It does.",
+author:"William James"
+},
+
+{
+quote:"It is not what we get, but who we become, that gives meaning to our lives.",
+author:"Tony Robbins"
+},
+
+{
+quote:"All we have to decide is what to do with the time that is given us.",
+author:"J. R. R. Tolkien"
+},
+
+{
+quote:"Not all those who wander are lost.",
+author:"J. R. R. Tolkien"
+},
+
+{
+quote:"The energy of the mind is the essence of life.",
+author:"Aristotle"
+},
+
+{
+quote:"Know thyself.",
+author:"Delphic Maxim"
+}
+
+],
+solitude: [
+
+{
+quote:"I am a cage, in search of a bird.",
+author:"Franz Kafka"
+},
+
+{
+quote:"The quieter you become, the more you can hear.",
+author:"Rumi"
+},
+
+{
+quote:"Solitude is the place of purification.",
+author:"Martin Buber"
+},
+
+{
+quote:"The greatest thing in the world is to know how to belong to oneself.",
+author:"Michel de Montaigne"
+},
+
+{
+quote:"All men's miseries derive from not being able to sit in a quiet room alone.",
+author:"Blaise Pascal"
+},
+
+{
+quote:"Loneliness expresses the pain of being alone, and solitude expresses the glory of being alone.",
+author:"Paul Tillich"
+},
+
+{
+quote:"The only journey is the one within.",
+author:"Rainer Maria Rilke"
+},
+
+{
+quote:"Be alone, that is the secret of invention; be alone, that is when ideas are born.",
+author:"Nikola Tesla"
+},
+
+{
+quote:"I restore myself when I'm alone.",
+author:"Marilyn Monroe"
+},
+
+{
+quote:"The monotony and solitude of a quiet life stimulates the creative mind.",
+author:"Albert Einstein"
+},
+
+{
+quote:"Without great solitude no serious work is possible.",
+author:"Pablo Picasso"
+},
+
+{
+quote:"A man can be himself only so long as he is alone.",
+author:"Arthur Schopenhauer"
+},
+
+{
+quote:"Talent hits a target no one else can hit; genius hits a target no one else can see.",
+author:"Arthur Schopenhauer"
+},
+
+{
+quote:"Whoever delights in solitude is either a wild beast or a god.",
+author:"Aristotle"
+},
+
+{
+quote:"The soul that sees beauty may sometimes walk alone.",
+author:"Johann Wolfgang von Goethe"
+},
+
+{
+quote:"One can be instructed in society, one is inspired only in solitude.",
+author:"Johann Wolfgang von Goethe"
+},
+
+{
+quote:"The more powerful and original a mind, the more it will incline towards solitude.",
+author:"Aldous Huxley"
+},
+
+{
+quote:"I never found the companion that was so companionable as solitude.",
+author:"Henry David Thoreau"
+},
+
+{
+quote:"To go out with the setting sun on an empty beach is to truly embrace your solitude.",
+author:"Jeanne Moreau"
+},
+
+{
+quote:"In solitude the mind gains strength and learns to lean upon itself.",
+author:"Laurence Sterne"
+}
+
+],
+wisdom: [
+
+{
+quote:"The only true wisdom is in knowing you know nothing.",
+author:"Socrates"
+},
+
+{
+quote:"The unexamined life is not worth living.",
+author:"Socrates"
+},
+
+{
+quote:"Knowing yourself is the beginning of all wisdom.",
+author:"Aristotle"
+},
+
+{
+quote:"Wise men speak because they have something to say.",
+author:"Plato"
+},
+
+{
+quote:"Knowing others is wisdom; knowing yourself is enlightenment.",
+author:"Lao Tzu"
+},
+
+{
+quote:"He who knows all the answers has not been asked all the questions.",
+author:"Confucius"
+},
+
+{
+quote:"Science is organized knowledge. Wisdom is organized life.",
+author:"Immanuel Kant"
+},
+
+{
+quote:"The greatest wealth is to live content with little.",
+author:"Plato"
+},
+
+{
+quote:"The soul becomes dyed with the color of its thoughts.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"Very little is needed to make a happy life.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"What we achieve inwardly will change outer reality.",
+author:"Plutarch"
+},
+
+{
+quote:"Time discovers truth.",
+author:"Seneca"
+},
+
+{
+quote:"Associate with people who are likely to improve you.",
+author:"Seneca"
+},
+
+{
+quote:"We have two ears and one mouth so that we can listen twice as much as we speak.",
+author:"Epictetus"
+},
+
+{
+quote:"Wealth consists not in having great possessions, but in having few wants.",
+author:"Epictetus"
+},
+
+{
+quote:"Character is destiny.",
+author:"Heraclitus"
+},
+
+{
+quote:"Nothing is permanent except change.",
+author:"Heraclitus"
+},
+
+{
+quote:"The important thing is not to stop questioning.",
+author:"Albert Einstein"
+},
+
+{
+quote:"Imagination is more important than knowledge.",
+author:"Albert Einstein"
+},
+
+{
+quote:"Know thyself.",
+author:"Delphic Maxim"
+}
+
+],
+truth: [
+
+{
+quote:"The only true wisdom is in knowing you know nothing.",
+author:"Socrates"
+},
+
+{
+quote:"An honest man is always a child.",
+author:"Socrates"
+},
+
+{
+quote:"If it is not right, do not do it; if it is not true, do not say it.",
+author:"Marcus Aurelius"
+},
+
+{
+quote:"Time discovers truth.",
+author:"Seneca"
+},
+
+{
+quote:"Truth is the beginning of every good to the gods, and of every good to man.",
+author:"Plato"
+},
+
+{
+quote:"The truth is rarely pure and never simple.",
+author:"Oscar Wilde"
+},
+
+{
+quote:"Three things cannot be long hidden: the sun, the moon, and the truth.",
+author:"Buddha"
+},
+
+{
+quote:"Truth never damages a cause that is just.",
+author:"Mahatma Gandhi"
+},
+
+{
+quote:"Rather than love, than money, than fame, give me truth.",
+author:"Henry David Thoreau"
+},
+
+{
+quote:"The truth will set you free, but first it will make you miserable.",
+author:"James A. Garfield"
+},
+
+{
+quote:"Dare to know.",
+author:"Immanuel Kant"
+},
+
+{
+quote:"There are no facts, only interpretations.",
+author:"Friedrich Nietzsche"
+},
+
+{
+quote:"To be conscious is to be in search of truth.",
+author:"Søren Kierkegaard"
+},
+
+{
+quote:"Silence is one of the hardest arguments to refute.",
+author:"Josh Billings"
+},
+
+{
+quote:"Knowing yourself is the beginning of all wisdom.",
+author:"Aristotle"
+},
+
+{
+quote:"Know thyself.",
+author:"Delphic Maxim"
+},
+
+{
+quote:"The important thing is not to stop questioning.",
+author:"Albert Einstein"
+},
+
+{
+quote:"Believe nothing you hear, and only one half that you see.",
+author:"Edgar Allan Poe"
+},
+
+{
+quote:"Character is destiny.",
+author:"Heraclitus"
+},
+
+{
+quote:"Truth is powerful and it prevails.",
+author:"Sojourner Truth"
+}
+
+]
+
+};
+
+/* =========================================================
+   THEME SYSTEM
+========================================================= */
+
+const themeBtns = document.querySelectorAll('.theme-btn');
+const themeQuote = document.getElementById('themeQuote');
+const themeAuthor = document.getElementById('themeAuthor');
+
+themeBtns.forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+themeBtns.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+
+const category = btn.dataset.theme;
+
+if(!themeQuotes[category]) return;
+
+const random =
+themeQuotes[category][
+Math.floor(
+Math.random() *
+themeQuotes[category].length
+)
+];
+
+themeQuote.style.opacity = 0;
+themeAuthor.style.opacity = 0;
+
+setTimeout(() => {
+
+themeQuote.textContent =
+`"${random.quote}"`;
+
+themeAuthor.textContent =
+random.author;
+
+themeQuote.style.opacity = 1;
+themeAuthor.style.opacity = 1;
+
+},200);
+
+});
+
+});
 /* ---------- nav: glass background on scroll ---------- */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
