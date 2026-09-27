@@ -325,3 +325,66 @@ section{padding:9rem 8%}
     letter-spacing: 0.13em;
   }
 }
+/* ================= THEMES ================= */
+
+.themes{
+padding:140px 8%;
+text-align:center;
+background:#0c0c0c;
+}
+
+.themes-title{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(2rem,5vw,4rem);
+font-weight:500;
+margin-bottom:50px;
+}
+
+.theme-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:50px;
+}
+
+.theme-btn{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+padding:12px 20px;
+cursor:pointer;
+font-family:'Inter',sans-serif;
+transition:.35s;
+backdrop-filter:blur(10px);
+}
+
+.theme-btn:hover,
+.theme-btn.active{
+background:#fff;
+color:#000;
+transform:translateY(-3px);
+}
+
+.theme-card{
+max-width:900px;
+margin:auto;
+padding:50px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(20px);
+}
+
+#themeQuote{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(1.5rem,3vw,2.6rem);
+line-height:1.5;
+font-style:italic;
+margin-bottom:25px;
+}
+
+#themeAuthor{
+opacity:.7;
+letter-spacing:2px;
+text-transform:uppercase;
+}
