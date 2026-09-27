@@ -1186,3 +1186,22 @@ font-size:1.5rem;
     text-align:center;
   }
 }
+/* ===== MOBILE BACKGROUND FIX ===== */
+
+@media (max-width: 800px){
+
+  /* Seven Deadly Sins */
+  .sins{
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  /* Wisdom Themes */
+  .themes{
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+
+}
