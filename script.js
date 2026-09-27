@@ -1201,7 +1201,12 @@ greed: {
   image: 'teymuribra_spirit_of_greed_next_to_a_pile_of_gold.jpg',
   description: 'Greed is the endless hunger for more—more wealth, more power, more possession. It convinces a person that no amount is ever enough, turning abundance into emptiness and desire into a prison.'
 },
-
+lust: {
+  title: 'Lust',
+  latin: 'Luxuria',
+  image: 'lust kills.jpg',
+  description: 'Lust is the uncontrolled desire for pleasure. When desire rules the mind, people begin to treat others as objects rather than souls, sacrificing wisdom, dignity, and purpose for momentary satisfaction.'
+},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
