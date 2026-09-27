@@ -1191,7 +1191,7 @@ const sinData = {
   pride: {
     title: 'Pride',
     latin: 'Superbia',
-    image: 'PRIDE-IMAGE.jpg',
+    image: '1407443630905626 (1).jpg',
     description: 'Description of Pride will appear here.'
   }
 };
