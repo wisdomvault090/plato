@@ -1205,3 +1205,53 @@ font-size:1.5rem;
   }
 
 }
+/* ============ FINAL 3 IMAGE ROW ============ */
+
+.final-image-trio {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 100px 5vw;
+  box-sizing: border-box;
+}
+
+.final-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.final-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .final-image-trio {
+    flex-direction: column;
+    gap: 35px;
+    padding: 70px 20px;
+  }
+
+  .final-image {
+    width: 100%;
+  }
+
+  .final-image img {
+    width: 100%;
+    height: auto;
+  }
+
+}
