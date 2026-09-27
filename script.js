@@ -1177,3 +1177,53 @@ window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
   setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1800);
 });
+/* ---------- seven deadly sins ---------- */
+
+const sinOverlay = document.getElementById('sinOverlay');
+const sinClose = document.getElementById('sinClose');
+const sinTitle = document.getElementById('sinTitle');
+const sinImage = document.getElementById('sinImage');
+const sinQuote = document.getElementById('sinQuote');
+
+const sinData = {
+  pride: {
+    title: 'Pride',
+    image: 'PRIDE-IMAGE.jpg',
+    quote: 'Your Pride quote here.'
+  }
+};
+
+document.querySelectorAll('.sin-card').forEach(button => {
+  button.addEventListener('click', () => {
+    const sin = button.dataset.sin;
+    const data = sinData[sin];
+
+    if (!data) return;
+
+    sinTitle.textContent = data.title;
+    sinImage.src = data.image;
+    sinQuote.textContent = data.quote;
+
+    sinOverlay.classList.add('open');
+    sinOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeSinOverlay(){
+  sinOverlay.classList.remove('open');
+  sinOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+sinClose.addEventListener('click', closeSinOverlay);
+
+sinOverlay.addEventListener('click', (e) => {
+  if (e.target === sinOverlay) closeSinOverlay();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && sinOverlay.classList.contains('open')) {
+    closeSinOverlay();
+  }
+});
