@@ -882,33 +882,26 @@ font-size:1.5rem;
 
 
 /* hover */
+/* individual button */
+.sins{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
 
-.sin-card:hover{
-  transform:translateY(-5px);
-
-  border-color:
-    rgba(169,131,90,.48);
-
-  color:var(--ivory);
+  padding:9rem 8% 8rem;
 
   background:
     linear-gradient(
-      145deg,
-      rgba(217,208,189,.075),
-      rgba(169,131,90,.035)
-    );
+      180deg,
+      rgba(10,9,8,.50),
+      rgba(10,9,8,.88)
+    ),
+    url("3940718421084494.jpg");
 
-  box-shadow:
-    0 16px 35px rgba(0,0,0,.4),
-    0 0 30px rgba(169,131,90,.07);
-}
-
-.sin-card:hover::before{
-  width:55%;
-}
-
-.sin-card:hover::after{
-  opacity:1;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
 
