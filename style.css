@@ -605,3 +605,439 @@ font-size:1.5rem;
 }
 
 }
+/* =========================================================
+   SEVEN DEADLY SINS — THE HUMAN SHADOW
+========================================================= */
+
+.sins{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+
+  padding:9rem 8% 8rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(169,131,90,.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #0a0908 0%,
+      #0d0b09 50%,
+      #080706 100%
+    );
+}
+
+/* subtle background texture */
+
+.sins::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(217,208,189,.025),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(169,131,90,.025),
+      transparent 30%
+    );
+
+  pointer-events:none;
+}
+
+
+/* ================= HEADER ================= */
+
+.sins-header{
+  position:relative;
+  z-index:2;
+
+  max-width:850px;
+  margin:0 auto;
+}
+
+.sins-header .label{
+  margin-bottom:1rem;
+}
+
+.sins-title{
+  font-family:var(--serif);
+  font-weight:500;
+
+  font-size:clamp(
+    2.8rem,
+    6vw,
+    5.5rem
+  );
+
+  line-height:1;
+
+  color:var(--ivory);
+
+  letter-spacing:-.025em;
+}
+
+.sins-line{
+  width:90px;
+  height:1px;
+
+  margin:2rem auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--bronze),
+      transparent
+    );
+
+  opacity:.7;
+}
+
+
+/* ================= MAIN ART ================= */
+
+.sins-art-wrap{
+  position:relative;
+
+  width:min(360px, 70vw);
+
+  margin:3.5rem auto 4.5rem;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.sins-art{
+  position:relative;
+  z-index:2;
+
+  display:block;
+
+  width:100%;
+  height:auto;
+
+  max-height:430px;
+
+  object-fit:contain;
+
+  filter:
+    brightness(.72)
+    contrast(1.08)
+    saturate(.72);
+
+  opacity:.94;
+
+  transition:
+    transform .7s ease,
+    filter .7s ease;
+}
+
+.sins-art-wrap:hover .sins-art{
+  transform:scale(1.025);
+
+  filter:
+    brightness(.82)
+    contrast(1.08)
+    saturate(.78);
+}
+
+
+/* soft light behind artwork */
+
+.sins-art-glow{
+  position:absolute;
+
+  width:75%;
+  aspect-ratio:1;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(169,131,90,.16),
+      rgba(169,131,90,.045) 35%,
+      transparent 70%
+    );
+
+  filter:blur(25px);
+
+  pointer-events:none;
+}
+
+
+/* ================= SIN BUTTONS ================= */
+
+.sins-grid{
+  position:relative;
+  z-index:3;
+
+  width:min(1000px, 100%);
+
+  margin:0 auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0,1fr));
+
+  gap:12px;
+}
+
+
+/* individual button */
+
+.sin-card{
+  position:relative;
+
+  min-height:78px;
+
+  border:1px solid rgba(217,208,189,.13);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.008)
+    );
+
+  color:var(--marble);
+
+  font-family:var(--serif);
+
+  font-size:1.25rem;
+
+  letter-spacing:.08em;
+
+  cursor:pointer;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    color .4s ease,
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+
+/* tiny bronze line */
+
+.sin-card::before{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  bottom:0;
+
+  width:0;
+  height:1px;
+
+  transform:translateX(-50%);
+
+  background:var(--bronze);
+
+  transition:width .45s ease;
+}
+
+
+/* soft inner light */
+
+.sin-card::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 50% 120%,
+      rgba(169,131,90,.13),
+      transparent 55%
+    );
+
+  opacity:0;
+
+  transition:opacity .45s ease;
+
+  pointer-events:none;
+}
+
+
+/* hover */
+
+.sin-card:hover{
+  transform:translateY(-5px);
+
+  border-color:
+    rgba(169,131,90,.48);
+
+  color:var(--ivory);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(217,208,189,.075),
+      rgba(169,131,90,.035)
+    );
+
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 30px rgba(169,131,90,.07);
+}
+
+.sin-card:hover::before{
+  width:55%;
+}
+
+.sin-card:hover::after{
+  opacity:1;
+}
+
+
+/* click */
+
+.sin-card:active{
+  transform:translateY(-2px) scale(.985);
+}
+
+
+/* keyboard */
+
+.sin-card:focus-visible{
+  outline:1px solid var(--bronze);
+
+  outline-offset:4px;
+}
+
+
+/* ================= INDIVIDUAL SIN MOOD ================= */
+
+/* very subtle differences */
+
+.sin-card[data-sin="pride"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(170,140,100,.10);
+}
+
+.sin-card[data-sin="greed"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(170,145,80,.10);
+}
+
+.sin-card[data-sin="lust"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(130,60,60,.10);
+}
+
+.sin-card[data-sin="envy"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(75,100,70,.10);
+}
+
+.sin-card[data-sin="gluttony"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(140,95,60,.10);
+}
+
+.sin-card[data-sin="wrath"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(130,55,45,.12);
+}
+
+.sin-card[data-sin="sloth"]:hover{
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.4),
+    0 0 35px rgba(75,75,75,.12);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  .sins{
+    padding:7rem 6% 6rem;
+  }
+
+  .sins-title{
+    font-size:2.8rem;
+  }
+
+  .sins-art-wrap{
+    width:min(290px,72vw);
+    margin:3rem auto 3.5rem;
+  }
+
+  .sins-art{
+    max-height:340px;
+  }
+
+  .sins-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+  }
+
+  .sin-card{
+    min-height:68px;
+    font-size:1.05rem;
+  }
+
+  .sin-card:last-child{
+    grid-column:1 / -1;
+    width:50%;
+    margin:0 auto;
+  }
+}
+
+
+@media(max-width:480px){
+
+  .sins{
+    padding:6rem 5% 5rem;
+  }
+
+  .sins-title{
+    font-size:2.45rem;
+  }
+
+  .sins-art-wrap{
+    width:65vw;
+    margin:2.7rem auto 3rem;
+  }
+
+  .sins-grid{
+    gap:8px;
+  }
+
+  .sin-card{
+    min-height:62px;
+
+    font-size:.95rem;
+
+    letter-spacing:.06em;
+  }
+}
