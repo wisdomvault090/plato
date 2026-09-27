@@ -1213,6 +1213,12 @@ envy: {
   image: 'Obsession.jpg',
   description: 'Envy is the sorrow felt at another person’s success, beauty, or happiness. Instead of inspiring growth, it poisons the heart with comparison, making a person blind to their own blessings.'
 },
+gluttony: {
+  title: 'Gluttony',
+  latin: 'Gula',
+  image: 'This relates to greed because the man in the….jpg',
+  description: 'Gluttony is the excessive consumption of more than one truly needs. It is not merely hunger for food, but a refusal to practice restraint, allowing appetite to rule over reason.'
+},
 document.querySelectorAll('.sin-card').forEach(button => {
 
   button.addEventListener('click', () => {
