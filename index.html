@@ -53,123 +53,6 @@
   </a>
 </header>
 
-<!-- ==================== THE MIRROR ==================== -->
-<section class="mirror reveal" id="mirror">
-
-  <div class="mirror-intro">
-
-    <p class="label">The Mirror</p>
-
-    <h2 class="mirror-title">
-      Some questions<br>
-      are not meant to be answered.
-    </h2>
-
-    <p class="mirror-subtitle">
-      They are meant to reveal the person answering them.
-    </p>
-
-    <div class="mirror-art">
-      <img src="378161699964155798.jpg" alt="The Mirror">
-    </div>
-
-    <button class="mirror-enter" id="mirrorEnter">
-      <span>KNOW YOURSELF</span>
-      <i>↗</i>
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ==================== MIRROR EXPERIENCE ==================== -->
-<div class="mirror-overlay" id="mirrorOverlay" aria-hidden="true">
-
-  <button class="mirror-close" id="mirrorClose" aria-label="Close Mirror">
-    ×
-  </button>
-
-  <div class="mirror-world">
-
-    <div class="mirror-world-bg"></div>
-
-    <div class="mirror-progress">
-      <span id="mirrorCurrent">01</span>
-      <span class="mirror-progress-line"></span>
-      <span>06</span>
-    </div>
-
-    <div class="mirror-question-screen" id="mirrorQuestionScreen">
-
-      <div class="mirror-question-image-wrap">
-        <img id="mirrorQuestionImage" src="" alt="">
-      </div>
-
-      <div class="mirror-question-content">
-
-        <p class="mirror-question-label">
-          THE MIRROR · <span id="mirrorQuestionNumber">01</span>
-        </p>
-
-        <h2 id="mirrorQuestion"></h2>
-
-        <div class="mirror-options">
-
-          <button class="mirror-option" data-option="0">
-            <span class="option-mark">I</span>
-            <span id="mirrorOption0"></span>
-          </button>
-
-          <button class="mirror-option" data-option="1">
-            <span class="option-mark">II</span>
-            <span id="mirrorOption1"></span>
-          </button>
-
-          <button class="mirror-option" data-option="2">
-            <span class="option-mark">III</span>
-            <span id="mirrorOption2"></span>
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- FINAL RESULT -->
-    <div class="mirror-result" id="mirrorResult">
-
-      <p class="mirror-result-label">
-        THE MIRROR HAS SPOKEN
-      </p>
-
-      <div class="mirror-result-line"></div>
-
-      <h2 id="mirrorResultTitle"></h2>
-
-      <p id="mirrorResultText"></p>
-
-      <div class="mirror-final-question">
-        <span>THE QUESTION YOU LEAVE WITH</span>
-        <p id="mirrorResultQuestion"></p>
-      </div>
-
-      <div class="mirror-final-thought">
-        <span>A THOUGHT FROM THE VAULT</span>
-        <p id="mirrorResultThought"></p>
-      </div>
-
-      <button class="mirror-restart" id="mirrorRestart">
-        LOOK AGAIN
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
 
 <!-- ============ QUOTE CHAMBER ============ -->
 <section class="chamber reveal" id="quote" style="--bg: var(--BACKGROUND_QUOTE)">
@@ -383,6 +266,127 @@
     <h3 id="lbTitle"></h3>
     <p id="lbDesc"></p>
   </div>
+</div>
+  <!-- ==================== THE MIRROR ==================== -->
+
+<section class="mirror" id="mirror">
+
+  <div class="mirror-inner">
+
+    <p class="mirror-kicker">THE MIRROR</p>
+
+    <h2 class="mirror-heading">
+      Six questions.<br>
+      Nothing more.
+    </h2>
+
+    <p class="mirror-description">
+      Not a test. Not a personality quiz.<br>
+      Just a moment to see what your answers reveal.
+    </p>
+
+    <div class="mirror-intro-image">
+      <img src="378161699964155798.jpg" alt="The Mirror">
+    </div>
+
+    <button class="mirror-enter" id="mirrorEnter">
+      ENTER THE MIRROR
+      <span>↗</span>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ==================== MIRROR EXPERIENCE ==================== -->
+
+<div class="mirror-overlay" id="mirrorOverlay" aria-hidden="true">
+
+  <button class="mirror-close" id="mirrorClose" aria-label="Close">
+    ×
+  </button>
+
+  <div class="mirror-experience">
+
+    <div class="mirror-top">
+      <span>THE MIRROR</span>
+      <span>
+        <b id="mirrorCurrent">01</b>
+        <i>/</i>
+        06
+      </span>
+    </div>
+
+
+    <div class="mirror-question">
+
+      <div class="mirror-visual">
+        <img id="mirrorQuestionImage" src="" alt="">
+      </div>
+
+      <div class="mirror-content">
+
+        <p class="mirror-number">
+          QUESTION <span id="mirrorQuestionNumber">01</span>
+        </p>
+
+        <h2 id="mirrorQuestion"></h2>
+
+        <div class="mirror-options">
+
+          <button class="mirror-option" data-option="0">
+            <span class="mirror-option-number">I</span>
+            <span id="mirrorOption0"></span>
+          </button>
+
+          <button class="mirror-option" data-option="1">
+            <span class="mirror-option-number">II</span>
+            <span id="mirrorOption1"></span>
+          </button>
+
+          <button class="mirror-option" data-option="2">
+            <span class="mirror-option-number">III</span>
+            <span id="mirrorOption2"></span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="mirror-result" id="mirrorResult">
+
+      <p class="mirror-result-kicker">
+        THE MIRROR HAS SPOKEN
+      </p>
+
+      <h2 id="mirrorResultTitle"></h2>
+
+      <p id="mirrorResultText"></p>
+
+      <div class="mirror-result-question">
+        <span>LEAVE WITH THIS</span>
+        <p id="mirrorResultQuestion"></p>
+      </div>
+
+      <div class="mirror-result-thought">
+        <span>A THOUGHT FROM THE VAULT</span>
+        <p id="mirrorResultThought"></p>
+      </div>
+
+      <button class="mirror-restart" id="mirrorRestart">
+        LOOK AGAIN
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
 <!-- ============ FINAL IMAGE TRIO ============ -->
 
