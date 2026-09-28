@@ -1701,64 +1701,18 @@ function closeMirror() {
 
 
 function finishMirror() {
-
   mirrorQuestionScreen.style.display = "none";
 
-  const yes = mirrorAnswers.filter(a => a === 0).length;
-  const no = mirrorAnswers.filter(a => a === 1).length;
-  const maybe = mirrorAnswers.filter(a => a === 2).length;
+  const exactQuote = getMirrorOutcomeQuote(mirrorAnswers);
 
-  let result;
-
-  if (yes >= 4) {
-
-    result = {
-      title: "THE SEEKER",
-      text:
-        "You seem drawn toward change, truth and movement. You would rather face an uncomfortable answer than remain inside a comfortable illusion.",
-      question:
-        "What would you become if you stopped being afraid of becoming different?",
-      thought:
-        "The person you become is shaped by the questions you are willing to ask."
-    };
-
-  } else if (no >= 4) {
-
-    result = {
-      title: "THE KEEPER",
-      text:
-        "You seem to protect continuity. You value what experience has made of you, and you do not believe every change is worth its cost.",
-      question:
-        "What are you protecting — and why is it worth protecting?",
-      thought:
-        "Not everything old is meant to be left behind."
-    };
-
-  } else if (maybe >= 4) {
-
-    result = {
-      title: "THE BETWEEN",
-      text:
-        "You do not seem comfortable with simple answers. You leave room for contradiction, uncertainty and the possibility that two things can be true at once.",
-      question:
-        "If certainty disappeared, what would you still believe?",
-      thought:
-        "Some truths live quietly between two opposite answers."
-    };
-
-  } else {
-
-    result = {
-      title: "THE UNFINISHED",
-      text:
-        "Your answers resist a single direction. Perhaps that is the most honest result. A person is rarely one thing for long.",
-      question:
-        "Which version of yourself are you still becoming?",
-      thought:
-        "We are not finished works. We are works in progress."
-    };
-
-  }
+  const result = {
+    title: "WHAT THE MIRROR KEPT",
+    text: exactQuote,
+    question:
+      "Which answer stayed with you after the others disappeared?",
+    thought:
+      "The mirror does not tell you who you are. It shows you what you chose to reveal."
+  };
 
   mirrorResultTitle.textContent = result.title;
   mirrorResultText.textContent = result.text;
@@ -1766,9 +1720,7 @@ function finishMirror() {
   mirrorResultThought.textContent = result.thought;
 
   mirrorResult.classList.add("active");
-
 }
-
 
 document.querySelectorAll(".mirror-option").forEach(button => {
 
