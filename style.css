@@ -1326,3 +1326,720 @@ font-size:1.5rem;
   background-repeat: no-repeat;
 }
 
+/* =========================================================
+   THE MIRROR
+========================================================= */
+
+.mirror {
+  position: relative;
+  min-height: 100svh;
+  padding: 9rem 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,9,8,.72),
+      rgba(10,9,8,.94)
+    ),
+    url("Mirror to another World.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.mirror::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(169,131,90,.08),
+      transparent 45%
+    );
+}
+
+.mirror-intro {
+  position: relative;
+  z-index: 2;
+  width: min(850px, 100%);
+  text-align: center;
+}
+
+.mirror-title {
+  margin: 1rem 0 1.2rem;
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: .86;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  color: var(--ivory);
+}
+
+.mirror-subtitle {
+  max-width: 520px;
+  margin: 0 auto 3rem;
+  color: rgba(217,208,189,.65);
+  font-family: var(--sans);
+  font-size: .75rem;
+  letter-spacing: .16em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.mirror-art {
+  width: min(430px, 72vw);
+  aspect-ratio: 4 / 3;
+  margin: 0 auto 2.5rem;
+  overflow: hidden;
+  position: relative;
+
+  border: 1px solid rgba(169,131,90,.35);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.65),
+    0 0 60px rgba(0,0,0,.4);
+}
+
+.mirror-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.08),
+      transparent 35%,
+      rgba(0,0,0,.3)
+    );
+
+  pointer-events: none;
+}
+
+.mirror-art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  filter:
+    brightness(.72)
+    contrast(1.08)
+    saturate(.75);
+
+  transition: transform 1.2s ease;
+}
+
+.mirror-art:hover img {
+  transform: scale(1.035);
+}
+
+
+/* ENTER BUTTON */
+
+.mirror-enter {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+
+  padding: 1.1rem 1.7rem;
+
+  border: 1px solid rgba(169,131,90,.55);
+  background: rgba(10,9,8,.55);
+
+  color: var(--ivory);
+
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .3em;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    color .35s ease,
+    border-color .35s ease,
+    background .35s ease,
+    transform .35s ease;
+}
+
+.mirror-enter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-101%);
+
+  background: var(--bronze);
+
+  transition: transform .4s ease;
+  z-index: -1;
+}
+
+.mirror-enter:hover::before {
+  transform: translateX(0);
+}
+
+.mirror-enter:hover {
+  color: #0a0908;
+  border-color: var(--bronze);
+  transform: translateY(-2px);
+}
+
+.mirror-enter i {
+  font-style: normal;
+  font-size: 1rem;
+  transition: transform .35s ease;
+}
+
+.mirror-enter:hover i {
+  transform: translate(3px,-3px);
+}
+
+
+/* =========================================================
+   MIRROR FULLSCREEN EXPERIENCE
+========================================================= */
+
+.mirror-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4rem 5%;
+
+  background: #080706;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .25s ease,
+    visibility .25s ease;
+}
+
+.mirror-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mirror-world {
+  position: relative;
+
+  width: min(1100px, 100%);
+  height: min(850px, 92vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(169,131,90,.18);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,7,6,.2),
+      rgba(8,7,6,.55)
+    ),
+    url("Mirror to another World.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.85);
+}
+
+.mirror-world-bg {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 10%,
+      rgba(0,0,0,.5) 75%,
+      rgba(0,0,0,.85)
+    );
+
+  pointer-events: none;
+}
+
+
+/* CLOSE */
+
+.mirror-close {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+
+  z-index: 10001;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(169,131,90,.35);
+  background: rgba(10,9,8,.7);
+
+  color: var(--ivory);
+
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+.mirror-close:hover {
+  background: var(--bronze);
+  color: #080706;
+  transform: rotate(90deg);
+}
+
+
+/* PROGRESS */
+
+.mirror-progress {
+  position: absolute;
+  top: 28px;
+  left: 35px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(242,237,226,.65);
+
+  font-family: var(--sans);
+  font-size: .6rem;
+  letter-spacing: .2em;
+}
+
+.mirror-progress-line {
+  width: 45px;
+  height: 1px;
+  background: rgba(169,131,90,.55);
+}
+
+
+/* QUESTION SCREEN */
+
+.mirror-question-screen {
+  position: relative;
+  z-index: 2;
+
+  width: min(780px, 90%);
+
+  text-align: center;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+.mirror-question-screen.changing {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+
+/* QUESTION IMAGE */
+
+.mirror-question-image-wrap {
+  width: min(390px, 65vw);
+  height: min(250px, 30vh);
+
+  margin: 0 auto 2rem;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(169,131,90,.32);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.7);
+}
+
+.mirror-question-image-wrap img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    brightness(.72)
+    contrast(1.1)
+    saturate(.72);
+}
+
+
+/* QUESTION */
+
+.mirror-question-content {
+  width: 100%;
+}
+
+.mirror-question-label {
+  margin: 0 0 1rem;
+
+  color: var(--bronze);
+
+  font-family: var(--sans);
+  font-size: .55rem;
+  letter-spacing: .3em;
+}
+
+.mirror-question {
+  margin: 0 auto 2rem;
+}
+
+#mirrorQuestion {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+
+  color: var(--ivory);
+
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.015em;
+}
+
+
+/* OPTIONS */
+
+.mirror-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.mirror-option {
+  min-height: 78px;
+
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(217,208,189,.18);
+
+  background: rgba(10,9,8,.55);
+
+  color: rgba(242,237,226,.78);
+
+  font-family: var(--sans);
+  font-size: .67rem;
+  line-height: 1.5;
+  letter-spacing: .05em;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color .25s ease,
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+.mirror-option:hover {
+  border-color: rgba(169,131,90,.75);
+  background: rgba(169,131,90,.1);
+  color: var(--ivory);
+
+  transform: translateY(-2px);
+}
+
+.option-mark {
+  flex-shrink: 0;
+
+  color: var(--bronze);
+
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   FINAL RESULT
+========================================================= */
+
+.mirror-result {
+  position: relative;
+  z-index: 3;
+
+  display: none;
+
+  width: min(760px, 90%);
+
+  text-align: center;
+
+  animation: mirrorResultIn .7s ease forwards;
+}
+
+.mirror-result.show {
+  display: block;
+}
+
+@keyframes mirrorResultIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mirror-result-label {
+  margin-bottom: 1.2rem;
+
+  color: var(--bronze);
+
+  font-family: var(--sans);
+  font-size: .55rem;
+  letter-spacing: .35em;
+}
+
+.mirror-result-line {
+  width: 70px;
+  height: 1px;
+
+  margin: 0 auto 2rem;
+
+  background: rgba(169,131,90,.6);
+}
+
+#mirrorResultTitle {
+  margin: 0 auto 1.5rem;
+
+  color: var(--ivory);
+
+  font-family: var(--serif);
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: .95;
+}
+
+#mirrorResultText {
+  max-width: 650px;
+
+  margin: 0 auto 2.5rem;
+
+  color: rgba(217,208,189,.72);
+
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.6;
+}
+
+.mirror-final-question,
+.mirror-final-thought {
+  max-width: 620px;
+
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem;
+
+  border: 1px solid rgba(169,131,90,.18);
+
+  background: rgba(0,0,0,.25);
+}
+
+.mirror-final-question span,
+.mirror-final-thought span {
+  display: block;
+
+  margin-bottom: .8rem;
+
+  color: var(--bronze);
+
+  font-family: var(--sans);
+  font-size: .5rem;
+  letter-spacing: .25em;
+}
+
+.mirror-final-question p,
+.mirror-final-thought p {
+  margin: 0;
+
+  color: var(--ivory);
+
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.mirror-final-thought p {
+  font-style: italic;
+}
+
+.mirror-restart {
+  margin-top: 1rem;
+
+  padding: .9rem 1.4rem;
+
+  border: 1px solid rgba(169,131,90,.45);
+
+  background: transparent;
+
+  color: var(--ivory);
+
+  font-family: var(--sans);
+  font-size: .58rem;
+  letter-spacing: .25em;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+.mirror-restart:hover {
+  background: var(--bronze);
+  color: #080706;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .mirror {
+    min-height: auto;
+    padding: 7rem 6% 6rem;
+    background-attachment: scroll;
+  }
+
+  .mirror-title {
+    font-size: clamp(2.7rem, 13vw, 4.5rem);
+  }
+
+  .mirror-subtitle {
+    font-size: .62rem;
+    margin-bottom: 2rem;
+  }
+
+  .mirror-art {
+    width: min(330px, 82vw);
+    aspect-ratio: 4 / 3;
+    margin-bottom: 2rem;
+  }
+
+  .mirror-overlay {
+    padding: 0;
+  }
+
+  .mirror-world {
+    width: 100%;
+    height: 100%;
+    min-height: 100svh;
+
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    align-items: flex-start;
+
+    padding:
+      90px
+      6%
+      45px;
+  }
+
+  .mirror-close {
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .mirror-progress {
+    top: 25px;
+    left: 20px;
+  }
+
+  .mirror-question-screen {
+    width: 100%;
+    margin: auto 0;
+  }
+
+  .mirror-question-image-wrap {
+    width: min(330px, 82vw);
+    height: 190px;
+
+    margin-bottom: 1.5rem;
+  }
+
+  #mirrorQuestion {
+    font-size: clamp(1.7rem, 8vw, 2.5rem);
+    line-height: 1.05;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .mirror-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .mirror-option {
+    min-height: 60px;
+    padding: .85rem;
+    font-size: .63rem;
+  }
+
+  .mirror-result {
+    width: 100%;
+    margin: auto 0;
+  }
+
+  #mirrorResultTitle {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  #mirrorResultText {
+    font-size: 1.15rem;
+  }
+
+  .mirror-final-question,
+  .mirror-final-thought {
+    padding: 1.2rem;
+  }
+
+}
