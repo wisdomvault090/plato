@@ -1310,7 +1310,237 @@ brainPopup?.addEventListener("click", (e) => {
 /* =====================================================
    THE MIRROR — EDITORIAL EXPERIENCE
    ===================================================== */
+// =====================================================
+// THE MIRROR — 150 SPECIAL OUTCOMES
+// 0 = FIRST OPTION
+// 1 = SECOND OPTION
+// 2 = THIRD OPTION
+// =====================================================
 
+const mirrorOutcomeQuotes = {
+
+  "000000": "You choose growth without hesitation, truth without fear, meaning without applause, and certainty over the unknown. Perhaps you are not searching for yourself—you are building yourself.",
+  "000001": "You choose transformation, truth, private meaning, and a known road. Even those who seek change sometimes need something certain beneath their feet.",
+  "000002": "You choose growth, truth, quiet meaning, and freedom. You seem willing to become someone new without demanding that life reveal the destination first.",
+  "000010": "You choose growth while protecting your peace. You value meaning that exists without an audience, and you still prefer a road you can see.",
+  "000011": "You choose change without surrendering every truth to yourself. Perhaps you understand that wisdom is knowing what deserves to enter your mind.",
+  "000012": "You choose growth, selective truth, private meaning, and freedom. You want to evolve without giving the world complete access to your inner world.",
+  "000020": "You choose growth and truth, while leaving recognition somewhere between silence and applause. Perhaps you want your life to matter before you want it to be noticed.",
+  "000021": "You face truth, value achievement, and still prefer certainty. You seem to believe that ambition means little if you do not know where you are going.",
+  "000022": "You choose growth, truth, balance, and freedom. You seem comfortable walking forward without asking life to promise you an easy road.",
+
+  "001000": "You seek growth, truth, recognition, and certainty. You want your journey to mean something—and you want to know where that meaning is taking you.",
+  "001001": "You choose transformation, truth, recognition, and certainty. Perhaps ambition becomes meaningful to you when both the destination and the witness matter.",
+  "001002": "You choose change, truth, recognition, and freedom. You want your life to matter without allowing recognition to own your direction.",
+  "001010": "You choose growth, truth, recognition, and reflection. You do not want success to erase the lessons that shaped you.",
+  "001011": "You face truth, value recognition, and keep your regrets. Perhaps you believe even painful chapters deserve a place in the story.",
+  "001012": "You choose growth, truth, recognition, reflection, and freedom. You want to be seen without becoming dependent on being seen.",
+  "001020": "You choose change, truth, recognition, and reflection. You want achievement without pretending the past was perfect.",
+  "001021": "You face truth, value recognition, preserve your regrets, and choose certainty. You seem to prefer understanding the past rather than escaping it.",
+  "001022": "You choose truth, recognition, reflection, and freedom. The past may remain part of you without being allowed to decide your future.",
+
+  "002000": "You choose growth and truth while remaining uncertain about recognition. You still want certainty in your path, even if you are unsure how much the world should matter.",
+  "002001": "You seek growth, truth, and private meaning while choosing certainty. You seem less interested in applause than in knowing your path is real.",
+  "002002": "You choose growth, truth, uncertainty, and freedom. You seem comfortable admitting that some important answers cannot be settled.",
+  "002010": "You choose growth, truth, uncertainty, and reflection. Perhaps you are learning that wisdom is not the same thing as knowing everything.",
+  "002011": "You choose change, truth, uncertainty, and the lessons of regret. You would rather understand slowly than decide blindly.",
+  "002012": "You choose transformation, truth, uncertainty, reflection, and freedom. You leave space for the person you have not become yet.",
+  "002020": "You choose growth, truth, uncertainty, and reflection. Perhaps you do not need applause or certainty; you only need the courage to continue.",
+  "002021": "You choose truth, uncertainty, reflection, and certainty. Contradictory perhaps—but human enough to be honest.",
+  "002022": "You choose growth, truth, uncertainty, reflection, and freedom. You leave the mirror open rather than demanding a final answer.",
+
+  "010000": "You choose growth, but you protect your peace from every truth. You value private meaning and prefer certainty. Perhaps you believe wisdom needs boundaries.",
+  "010001": "You want to change, but not every truth deserves access to you. You value private meaning and still prefer certainty.",
+  "010002": "You choose growth while protecting your inner peace, value private achievement, and embrace freedom. Your independence has boundaries.",
+  "010010": "You choose growth, selective truth, and reflection. You are not running from the past—you are choosing how much of it to carry.",
+  "010011": "You seek growth but refuse to believe every truth must be known. You value meaning, keep your regrets, and choose certainty.",
+  "010012": "You choose growth, selective truth, private meaning, and freedom. Becoming wiser does not require becoming completely exposed.",
+  "010020": "You choose growth, protect your peace, remain between recognition and privacy, and prefer certainty. Your ambition seems private but deliberate.",
+  "010021": "You choose change, caution, balance, and certainty. You are willing to evolve, but you refuse to let the world decide how fast.",
+  "010022": "You choose growth, caution, balance, and freedom. You leave the future open without giving everyone access to your inner world.",
+
+  "011000": "You choose growth, caution, recognition, and certainty. You want to become more, but you also want the world to understand what that becoming means.",
+  "011001": "You choose change, selective truth, recognition, and certainty. Your answers suggest ambition with boundaries.",
+  "011002": "You choose growth, caution, recognition, and freedom. You want your achievements witnessed, but you still want ownership of your road.",
+  "011010": "You choose growth, protect your peace, value recognition, and keep the lessons of regret. Success does not have to require forgetting yourself.",
+  "011011": "You choose transformation, caution, recognition, reflection, and certainty. Your past matters, but it does not have to become your prison.",
+  "011012": "You choose growth, caution, recognition, reflection, and freedom. You carry your history while refusing to let it decide your destination.",
+  "011020": "You choose change, selective truth, recognition, and reflection. You want to be understood without pretending the past was perfect.",
+  "011021": "You face only the truths you believe are worth carrying, value recognition, preserve your regrets, and choose certainty.",
+  "011022": "You choose growth, caution, recognition, reflection, and freedom. You seem to want both roots and open skies.",
+
+  "012000": "You choose growth, selective truth, uncertainty about recognition, and certainty. Not every question needs an audience.",
+  "012001": "You want to become better, reveal only what you can carry, remain unsure about recognition, and choose certainty.",
+  "012002": "You choose growth, caution, uncertainty, and freedom. You do not demand complete clarity before allowing yourself to move.",
+  "012010": "You choose growth, selective truth, uncertainty, and reflection. Perhaps you are learning to separate wisdom from simply knowing everything.",
+  "012011": "You choose change, caution, uncertainty, and the lessons of regret. You would rather understand slowly than decide blindly.",
+  "012012": "You choose growth, selective truth, uncertainty, reflection, and freedom. You leave space for the person you have not become yet.",
+  "012020": "You choose growth, caution, uncertainty, and reflection. Perhaps you do not need applause or certainty; you only need the courage to continue.",
+  "012021": "You choose selective truth, uncertainty, reflection, and certainty. Some contradictions do not need to be solved immediately.",
+  "012022": "You choose growth, caution, uncertainty, reflection, and freedom. Your answers leave the mirror open rather than finished.",
+
+  "012100": "You choose to grow without abandoning yourself, protect your peace, remain unsure about recognition, and prefer certainty.",
+  "012101": "You choose yourself, selective truth, uncertainty, reflection, and certainty. Not knowing everything does not mean knowing nothing.",
+  "012102": "You choose identity, caution, uncertainty, reflection, and freedom. You allow some questions to remain unanswered.",
+  "012110": "You choose yourself, protect your peace, remain unsure about recognition, and keep your regrets. You carry history without letting it speak for you.",
+  "012111": "You choose identity, caution, uncertainty, and reflection while preferring certainty. Some contradictions can simply remain.",
+  "012112": "You choose yourself, selective truth, uncertainty, reflection, and freedom. You are still becoming, and you are willing to admit it.",
+  "012120": "You choose identity, truth carefully, uncertainty, and reflection. You search inward before asking the world for an answer.",
+  "012121": "You protect your identity, protect your peace, remain unsure about recognition, and keep the past's lessons.",
+  "012122": "You choose yourself, caution, uncertainty, reflection, and freedom. Perhaps the deepest answer is that you are still discovering the question.",
+
+  "020000": "You begin with uncertainty, yet still seek truth, private meaning, and certainty. Doubt can exist beside direction.",
+  "020001": "You accept uncertainty about yourself, face truth, value private meaning, and choose certainty. You may question the road while still wanting a destination.",
+  "020002": "You choose uncertainty, truth, private meaning, and freedom. You seem willing to walk without demanding that life become predictable.",
+  "020010": "You accept uncertainty, face truth, protect private meaning, and keep the lessons of regret. Your answers suggest reflection rather than escape.",
+  "020011": "You choose uncertainty, truth, private meaning, and memory. Perhaps your regrets are reminders of how you arrived here.",
+  "020012": "You choose uncertainty, truth, private meaning, reflection, and freedom. You leave the future unwritten while carrying the past honestly.",
+  "020020": "You accept uncertainty, seek truth, remain between recognition and privacy, and reflect on regret. Your answers resist simple definitions.",
+  "020021": "You choose uncertainty, truth, balance, and certainty. You may not know exactly what you want, but you want to understand where you stand.",
+  "020022": "You choose uncertainty, truth, balance, reflection, and freedom. You have stopped demanding that every contradiction disappear.",
+
+  "021000": "You accept uncertainty, seek truth, value recognition, and choose certainty. You want your life to matter privately and publicly.",
+  "021001": "You begin with uncertainty, face truth, value recognition, and still choose certainty. You may question yourself, but you do not want to lose direction.",
+  "021002": "You accept uncertainty, truth, recognition, and freedom. You want your existence to matter without surrendering your own road.",
+  "021010": "You choose uncertainty, truth, recognition, and reflection. Your past matters, but regret does not get the final word.",
+  "021011": "You face uncertainty and truth, value recognition, and keep your regrets. Perhaps being seen matters because your story matters.",
+  "021012": "You choose uncertainty, truth, recognition, reflection, and freedom. You want to be understood without becoming dependent on understanding.",
+  "021020": "You accept uncertainty, seek truth, value recognition, and reflect on regret. You are learning to make peace with complexity.",
+  "021021": "You choose uncertainty, truth, recognition, and certainty while keeping your regrets. Perhaps certainty means knowing what matters, not knowing everything.",
+  "021022": "You accept uncertainty, truth, recognition, reflection, and freedom. You carry the past while refusing to close the future.",
+
+  "022000": "You accept uncertainty, face truth, remain undecided about recognition, and prefer certainty. You may not know how you want to be seen, but you want direction.",
+  "022001": "You choose uncertainty, truth, balance, and certainty. You are comfortable admitting that parts of yourself remain unresolved.",
+  "022002": "You choose uncertainty, truth, balance, and freedom. You would rather live with questions than accept an easy lie.",
+  "022010": "You accept uncertainty, face truth, remain between recognition and privacy, and keep the lessons of regret.",
+  "022011": "You choose uncertainty, truth, balance, and memory. Perhaps your regrets have taught you not what to avoid, but what matters.",
+  "022012": "You choose uncertainty, truth, balance, reflection, and freedom. You leave room for the person you may become.",
+  "022020": "You accept uncertainty, truth, balance, and reflection. You seem less interested in defining yourself than understanding yourself.",
+  "022021": "You choose uncertainty, truth, balance, and certainty while keeping your regrets. Wanting clarity while accepting complexity is not a contradiction.",
+  "022022": "You choose uncertainty, truth, balance, reflection, and freedom. Perhaps the mirror's answer is simply another question—and you are willing to keep looking.",
+
+  "100000": "You choose to grow without abandoning yourself, seek truth, value private meaning, and choose certainty. Your identity remains your foundation.",
+  "100001": "You choose yourself, truth, private meaning, and certainty. Perhaps becoming better should never require becoming someone you cannot recognize.",
+  "100002": "You protect your identity, seek truth, value private meaning, and embrace freedom. Your answers suggest quiet self-possession.",
+  "100010": "You choose yourself, face truth, value private meaning, and reflect on regret. Growth does not require pretending the past never happened.",
+  "100011": "You choose identity, truth, private meaning, reflection, and certainty. You seem to believe even painful chapters deserve meaning.",
+  "100012": "You choose yourself, truth, private meaning, reflection, and freedom. You want to evolve without abandoning the person who started the journey.",
+  "100020": "You choose yourself, truth, balance, reflection, and certainty. You do not need the world to define what your journey means.",
+  "100021": "You choose identity, truth, recognition, and certainty. You want to remain yourself while still allowing achievement to be seen.",
+  "100022": "You choose yourself, truth, balance, and freedom. Perhaps your worth does not need to be measured by a single answer.",
+
+  "101000": "You choose identity, truth, recognition, and certainty. You want to be seen, but never at the cost of becoming someone else.",
+  "101001": "You protect your identity, face truth, value recognition, and choose certainty. Your ambition has roots.",
+  "101002": "You choose yourself, truth, recognition, and freedom. You want recognition, but you refuse to let it choose your road.",
+  "101010": "You choose identity, truth, recognition, and reflection. Your past is part of your story, not the whole story.",
+  "101011": "You protect yourself, face truth, value recognition, and keep your regrets. You want to be seen as a whole person.",
+  "101012": "You choose identity, truth, recognition, reflection, and freedom. You want to be understood without becoming defined by others.",
+  "101020": "You choose yourself, truth, recognition, and reflection. You want achievement without erasing the road that built you.",
+  "101021": "You protect your identity, face truth, value recognition, and keep your regrets while choosing certainty.",
+  "101022": "You choose yourself, truth, recognition, reflection, and freedom. The future deserves more of your attention than the past deserves your regret.",
+
+  "102000": "You choose identity, truth, uncertainty about recognition, and certainty. You seem to believe knowing yourself matters more than being admired.",
+  "102001": "You protect your identity, seek truth, remain uncertain about recognition, and choose certainty. Your direction comes from within.",
+  "102002": "You choose yourself, truth, uncertainty, and freedom. You are not searching for a perfect identity, only an honest one.",
+  "102010": "You choose identity, truth, uncertainty, and reflection. You question yourself without needing to destroy yourself.",
+  "102011": "You protect yourself, face truth, remain unsure about recognition, and keep the lessons of regret.",
+  "102012": "You choose yourself, truth, uncertainty, reflection, and freedom. You are willing to admit that you are still becoming.",
+  "102020": "You choose identity, truth, uncertainty, and reflection. Perhaps understanding yourself matters more than explaining yourself.",
+  "102021": "You protect your identity, face truth, remain uncertain about recognition, and keep your regrets while choosing certainty.",
+  "102022": "You choose yourself, truth, uncertainty, reflection, and freedom. You are not finished—and perhaps that is the point.",
+
+  "110000": "You choose to remain yourself, protect your peace, value private meaning, and prefer certainty. You believe growth should have boundaries.",
+  "110001": "You protect your identity, choose carefully which truths to carry, value private meaning, and seek certainty.",
+  "110002": "You choose yourself, caution, private meaning, and freedom. You are willing to change, but only in ways that still feel like you.",
+  "110010": "You choose identity, caution, private meaning, and reflection. You do not need to erase your past to move beyond it.",
+  "110011": "You protect your identity, your peace, and the lessons of regret. Perhaps stability can be a form of strength.",
+  "110012": "You choose yourself, caution, private meaning, reflection, and freedom. You want a future that still feels like yours.",
+  "110020": "You choose identity, caution, balance, and reflection. You seem more interested in authenticity than applause.",
+  "110021": "You protect yourself, choose your truths carefully, value balance, and prefer certainty.",
+  "110022": "You choose yourself, caution, balance, reflection, and freedom. You do not need to have every answer today.",
+
+  "111000": "You choose yourself, protect your peace, value recognition, and prefer certainty. You want to evolve without losing your identity.",
+  "111001": "You choose identity, caution, recognition, reflection, and certainty. Your past matters because it helped build the person answering.",
+  "111002": "You choose yourself, selective truth, recognition, reflection, and freedom. You want to be seen as the person you decide to become.",
+  "111010": "You protect your identity, your peace, your ambition, and your memories. Your answers suggest controlled growth.",
+  "111011": "You choose yourself, caution, recognition, and reflection while preferring certainty. You are not erasing your story—you are learning to live with it.",
+  "111012": "You choose identity, caution, recognition, reflection, and freedom. You understand that the strongest identity is one that can still change.",
+  "111020": "You choose yourself, truth carefully, recognition, and reflection. You stand between wanting to be understood and refusing to live for understanding.",
+  "111021": "You protect your identity, your peace, and your need to be seen while keeping your regrets.",
+  "111022": "You choose yourself, caution, recognition, reflection, and freedom. You want to move forward without pretending the road behind you never existed.",
+
+  "112000": "You choose yourself, selective truth, uncertainty about recognition, and certainty. Your inner compass matters more than applause.",
+  "112001": "You protect your identity, choose your truths carefully, remain unsure about recognition, and prefer certainty.",
+  "112002": "You choose yourself, caution, uncertainty, and freedom. You are comfortable leaving some parts of yourself undefined.",
+  "112010": "You choose identity, caution, uncertainty, and reflection. You do not need every answer immediately.",
+  "112011": "You protect yourself, your peace, remain unsure about recognition, and keep your regrets. You allow yourself time.",
+  "112012": "You choose yourself, selective truth, uncertainty, reflection, and freedom. You are still discovering what matters.",
+  "112020": "You choose identity, caution, uncertainty, and reflection. You seem to search inward before seeking approval.",
+  "112021": "You protect your identity, choose your truths carefully, remain uncertain about recognition, and keep the past's lessons.",
+  "112022": "You choose yourself, caution, uncertainty, reflection, and freedom. Perhaps not knowing is sometimes the beginning of knowing.",
+
+  "120000": "You choose yourself, seek truth, remain balanced about recognition, and prefer certainty. You want meaning without becoming dependent on applause.",
+  "120001": "You protect your identity, face truth, value balance, and choose certainty. Your answers suggest quiet ambition.",
+  "120002": "You choose yourself, truth, balance, and freedom. You want to be recognized without becoming controlled by recognition.",
+  "120010": "You choose identity, truth, balance, and reflection. You carry the past while still allowing yourself to change.",
+  "120011": "You protect yourself, face truth, value balance, and keep your regrets. Your story matters, even where it is imperfect.",
+  "120012": "You choose yourself, truth, balance, reflection, and freedom. You seem comfortable holding two truths at once.",
+  "120020": "You choose identity, truth, balance, and reflection. You do not need a simple definition of yourself.",
+  "120021": "You protect your identity, face truth, value balance, and keep your regrets while choosing certainty.",
+  "120022": "You choose yourself, truth, balance, reflection, and freedom. You are looking for an honest life rather than a perfect one.",
+
+  "121000": "You choose yourself, protect your peace, value recognition, and choose certainty. You want to be seen without being changed by the gaze.",
+  "121001": "You protect your identity, carefully choose what truths to carry, value recognition, and prefer certainty.",
+  "121002": "You choose yourself, caution, recognition, and freedom. You want recognition, but you refuse to let it become your identity.",
+  "121010": "You choose identity, caution, recognition, and reflection. You want your success to remember where it came from.",
+  "121011": "You protect yourself, your peace, your need to be seen, and the lessons of regret.",
+  "121012": "You choose yourself, caution, recognition, reflection, and freedom. You want to be seen without surrendering yourself.",
+  "121020": "You choose identity, caution, recognition, and reflection. Perhaps being understood matters, but being authentic matters more.",
+  "121021": "You protect your identity, choose your truths carefully, value recognition, and preserve your regrets.",
+  "121022": "You choose yourself, caution, recognition, reflection, and freedom. You want the future to know the truth about the past without being ruled by it.",
+
+  "122000": "You choose yourself, truth, uncertainty about recognition, and certainty. You trust your inner compass more than outside approval.",
+  "122001": "You protect your identity, face truth, remain uncertain about recognition, and choose certainty. Your direction comes from within.",
+  "122002": "You choose yourself, truth, uncertainty, and freedom. You seem willing to walk alone rather than walk falsely.",
+  "122010": "You choose identity, truth, uncertainty, and reflection. You are willing to question who you are without losing yourself.",
+  "122011": "You protect yourself, face truth, remain uncertain about recognition, and keep your regrets. You do not need to turn every wound into wisdom immediately.",
+  "122012": "You choose yourself, truth, uncertainty, reflection, and freedom. You are still becoming, and you know it.",
+  "122020": "You choose identity, truth, uncertainty, and reflection. Perhaps your greatest question is not who you are, but who you are becoming.",
+  "122021": "You protect your identity, face truth, remain uncertain about recognition, and keep the lessons of regret.",
+  "122022": "You choose yourself, truth, uncertainty, reflection, and freedom. The mirror does not close the story—it leaves the next page to you."
+};
+const mirrorFallbackQuotes = [
+  "Perhaps the mirror is not here to give you an answer. Perhaps it is here to make you notice the answer you already carry.",
+  "Some choices cannot define a person. They can only reveal a direction.",
+  "You are not one decision. You are the space between all the decisions you make.",
+  "The strange thing about looking inward is that the answer often becomes another question.",
+  "Not every contradiction needs to be solved. Some simply need to be understood.",
+  "A person changes quietly, long before the world notices.",
+  "The life you become is built from choices nobody else can make for you.",
+  "Perhaps certainty was never the destination. Perhaps understanding was.",
+  "What you choose today does not have to imprison who you become tomorrow.",
+  "The mirror shows a moment. You are still becoming.",
+  "There are answers we choose, and answers that choose something within us.",
+  "You may never completely understand yourself—and perhaps that is what keeps you searching.",
+  "Some truths arrive as answers. Others arrive as questions that refuse to leave.",
+  "Your choices are not a final definition. They are footprints on a road still being written.",
+  "The person in the mirror is not finished. Neither is the story."
+];
+
+function getMirrorOutcomeQuote(answers) {
+  const key = answers.join("");
+
+  if (mirrorOutcomeQuotes[key]) {
+    return mirrorOutcomeQuotes[key];
+  }
+
+  const fallbackIndex =
+    answers.reduce((total, value, index) => {
+      return total + (value + 1) * (index + 3);
+    }, 0) % mirrorFallbackQuotes.length;
+
+  return mirrorFallbackQuotes[fallbackIndex];
+}
 const mirrorEnter = document.getElementById("mirrorEnter");
 const mirrorOverlay = document.getElementById("mirrorOverlay");
 const mirrorClose = document.getElementById("mirrorClose");
