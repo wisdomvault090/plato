@@ -1307,3 +1307,424 @@ brainPopup?.addEventListener("click", (e) => {
     brainPopup.classList.remove("open");
   }
 });
+/* =========================================================
+   THE MIRROR — KNOW YOURSELF
+========================================================= */
+
+const mirrorEnter = document.getElementById('mirrorEnter');
+const mirrorOverlay = document.getElementById('mirrorOverlay');
+const mirrorClose = document.getElementById('mirrorClose');
+
+const mirrorQuestionScreen =
+  document.getElementById('mirrorQuestionScreen');
+
+const mirrorQuestionImage =
+  document.getElementById('mirrorQuestionImage');
+
+const mirrorQuestion =
+  document.getElementById('mirrorQuestion');
+
+const mirrorCurrent =
+  document.getElementById('mirrorCurrent');
+
+const mirrorQuestionNumber =
+  document.getElementById('mirrorQuestionNumber');
+
+const mirrorResult =
+  document.getElementById('mirrorResult');
+
+const mirrorResultTitle =
+  document.getElementById('mirrorResultTitle');
+
+const mirrorResultText =
+  document.getElementById('mirrorResultText');
+
+const mirrorResultQuestion =
+  document.getElementById('mirrorResultQuestion');
+
+const mirrorResultThought =
+  document.getElementById('mirrorResultThought');
+
+const mirrorRestart =
+  document.getElementById('mirrorRestart');
+
+const mirrorOptions =
+  document.querySelectorAll('.mirror-option');
+
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+const mirrorQuestions = [
+
+  {
+    image: 'Becoming the better version of myself 💫.jpg',
+
+    question:
+      'If becoming someone better means leaving a part of yourself behind, would you still choose to change?',
+
+    options: [
+      'YES — If I must lose a part of myself to grow, let it go.',
+      'NO — I should grow without becoming a stranger to myself.',
+      'MAYBE — Some parts deserve to change; others deserve to remain.'
+    ]
+  },
+
+  {
+    image: '866661522028272672.jpg',
+
+    question:
+      'If the truth about how others truly see you appeared before your eyes, would you dare to read it?',
+
+    options: [
+      'YES — Even an uncomfortable truth is better than an illusion.',
+      'NO — Not every truth makes a person wiser.',
+      'MAYBE — I would read it, but I could not promise it would change me.'
+    ]
+  },
+
+  {
+    image: '1143914374084216064.jpg',
+
+    question:
+      'If you reached everything you once dreamed of, yet nobody ever knew you had achieved it… would it still be enough?',
+
+    options: [
+      'YES — A life does not become meaningful because it is witnessed.',
+      'NO — What is achievement if there is nobody to recognize it?',
+      'MAYBE — Recognition matters, but it should never become the meaning.'
+    ]
+  },
+
+  {
+    image: '777152479487212546.jpg',
+
+    question:
+      'If you could erase one regret from your past, but erasing it would also erase the person it helped you become… would you erase it?',
+
+    options: [
+      'YES — I would rather be free from the weight of it.',
+      'NO — Some scars are reminders of who we survived becoming.',
+      'MAYBE — I would not erase it; I would only wish it had hurt less.'
+    ]
+  },
+
+  {
+    image: '837599230721008165.jpg',
+
+    question:
+      'If nobody could judge you, praise you, or remember your choices… what would you finally choose for yourself?',
+
+    options: [
+      'YES — I would stop living according to other people’s eyes.',
+      'NO — My choices would remain the same; I already know what matters.',
+      'MAYBE — I know what I want, but I am still learning to admit it.'
+    ]
+  },
+
+  {
+    image: '913878949377761087.jpg',
+
+    question:
+      'If certainty could give you peace, but freedom required you to live without knowing what comes next… which would you choose?',
+
+    options: [
+      'CERTAINTY — I would rather know the road before I walk it.',
+      'FREEDOM — I would rather choose the road while walking it.',
+      'NEITHER — A meaningful life may require both uncertainty and direction.'
+    ]
+  }
+
+];
+
+
+/* =========================================================
+   ANSWER TRACKING
+========================================================= */
+
+let mirrorStep = 0;
+let mirrorAnswers = [];
+
+
+/* =========================================================
+   OPEN
+========================================================= */
+
+mirrorEnter?.addEventListener('click', () => {
+
+  mirrorStep = 0;
+  mirrorAnswers = [];
+
+  mirrorResult.classList.remove('show');
+  mirrorQuestionScreen.style.display = 'block';
+
+  mirrorOverlay.classList.add('open');
+  mirrorOverlay.setAttribute('aria-hidden', 'false');
+
+  document.body.style.overflow = 'hidden';
+
+  showMirrorQuestion();
+
+});
+
+
+/* =========================================================
+   SHOW QUESTION
+========================================================= */
+
+function showMirrorQuestion() {
+
+  const q = mirrorQuestions[mirrorStep];
+
+  if (!q) return;
+
+  mirrorQuestionScreen.classList.remove('changing');
+
+  mirrorQuestionImage.src = q.image;
+  mirrorQuestionImage.alt = `Mirror question ${mirrorStep + 1}`;
+
+  mirrorQuestion.textContent = q.question;
+
+  mirrorQuestionNumber.textContent =
+    String(mirrorStep + 1).padStart(2, '0');
+
+  mirrorCurrent.textContent =
+    String(mirrorStep + 1).padStart(2, '0');
+
+  mirrorOptions.forEach((button, index) => {
+
+    const text =
+      button.querySelector(`#mirrorOption${index}`);
+
+    if (text) {
+      text.textContent = q.options[index];
+    }
+
+  });
+
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+mirrorOptions.forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    const selected =
+      Number(button.dataset.option);
+
+    mirrorAnswers.push(selected);
+
+    mirrorQuestionScreen.classList.add('changing');
+
+    setTimeout(() => {
+
+      mirrorStep++;
+
+      if (mirrorStep >= mirrorQuestions.length) {
+
+        showMirrorResult();
+
+      } else {
+
+        showMirrorQuestion();
+
+      }
+
+    }, 190);
+
+  });
+
+});
+
+
+/* =========================================================
+   RESULT ENGINE
+========================================================= */
+
+function showMirrorResult() {
+
+  mirrorQuestionScreen.style.display = 'none';
+
+  mirrorResult.classList.add('show');
+
+  const yesCount =
+    mirrorAnswers.filter(answer => answer === 0).length;
+
+  const noCount =
+    mirrorAnswers.filter(answer => answer === 1).length;
+
+  const maybeCount =
+    mirrorAnswers.filter(answer => answer === 2).length;
+
+
+  /*
+     RESULT 1
+     Mostly YES
+  */
+
+  if (yesCount >= 4) {
+
+    mirrorResultTitle.textContent =
+      'THE SEEKER';
+
+    mirrorResultText.textContent =
+      'You kept choosing the door that opened into uncertainty. You did not always choose comfort, and you did not always choose approval. Perhaps what you are searching for is not an easier life, but a life that feels truly yours.';
+
+    mirrorResultQuestion.textContent =
+      'If nobody could ever applaud the person you become, would you still become them?';
+
+    mirrorResultThought.textContent =
+      'Perhaps becoming yourself is not discovering who you are — but deciding who is worth becoming.';
+
+  }
+
+
+  /*
+     RESULT 2
+     Mostly NO
+  */
+
+  else if (noCount >= 4) {
+
+    mirrorResultTitle.textContent =
+      'THE KEEPER';
+
+    mirrorResultText.textContent =
+      'You did not rush to destroy the past, expose every truth, or trade certainty for freedom. There is something in you that understands that not everything old is something that must be abandoned.';
+
+    mirrorResultQuestion.textContent =
+      'How do you know the person you are protecting is still the person you want to be?';
+
+    mirrorResultThought.textContent =
+      'Growth is not always becoming someone new. Sometimes it is learning which parts of yourself were worth keeping.';
+
+  }
+
+
+  /*
+     RESULT 3
+     Mostly MAYBE
+  */
+
+  else if (maybeCount >= 3) {
+
+    mirrorResultTitle.textContent =
+      'THE BETWEEN';
+
+    mirrorResultText.textContent =
+      'Your answers rarely lived at either extreme. You left room for contradiction — for truth that can hurt, freedom that can frighten, and change that does not require forgetting who you were.';
+
+    mirrorResultQuestion.textContent =
+      'What if the uncertainty you keep trying to resolve is the very thing that is teaching you?';
+
+    mirrorResultThought.textContent =
+      'Some answers close doors. Some questions become doors.';
+
+  }
+
+
+  /*
+     MIXED RESULT
+  */
+
+  else {
+
+    mirrorResultTitle.textContent =
+      'THE UNFINISHED';
+
+    mirrorResultText.textContent =
+      'You did not give the Mirror a simple version of yourself. Your choices moved between certainty and freedom, memory and change, recognition and meaning. Perhaps that contradiction is more honest than any label could be.';
+
+    mirrorResultQuestion.textContent =
+      'Which part of yourself are you still trying to understand?';
+
+    mirrorResultThought.textContent =
+      'A person is not a finished answer. We become ourselves in the questions we refuse to stop asking.';
+
+  }
+
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+function closeMirror() {
+
+  mirrorOverlay.classList.remove('open');
+
+  mirrorOverlay.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.style.overflow = '';
+
+}
+
+
+mirrorClose?.addEventListener(
+  'click',
+  closeMirror
+);
+
+
+mirrorOverlay?.addEventListener(
+  'click',
+  (event) => {
+
+    if (event.target === mirrorOverlay) {
+      closeMirror();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener(
+  'keydown',
+  (event) => {
+
+    if (
+      event.key === 'Escape' &&
+      mirrorOverlay.classList.contains('open')
+    ) {
+
+      closeMirror();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+mirrorRestart?.addEventListener(
+  'click',
+  () => {
+
+    mirrorStep = 0;
+    mirrorAnswers = [];
+
+    mirrorResult.classList.remove('show');
+
+    mirrorQuestionScreen.style.display =
+      'block';
+
+    showMirrorQuestion();
+
+  }
+);
