@@ -1764,3 +1764,351 @@ document.addEventListener("keydown", event => {
   }
 
 });
+/* =========================================================
+   WISDOM VAULT — CINEMATIC WISDOM JOURNEY
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (
+    typeof gsap === "undefined" ||
+    typeof ScrollTrigger === "undefined"
+  ) {
+    console.error("GSAP or ScrollTrigger failed to load.");
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+
+  const journey =
+    document.querySelector(".wisdom-journey");
+
+  const stage =
+    document.querySelector(".wj-stage");
+
+  const scenes =
+    gsap.utils.toArray(".wj-scene");
+
+  const ending =
+    document.querySelector(".wj-ending");
+
+  const progressNumber =
+    document.querySelector(".wj-progress-number");
+
+
+  if (
+    !journey ||
+    !stage ||
+    !scenes.length
+  ) {
+    return;
+  }
+
+
+  /* =====================================================
+     INITIAL STATE
+  ===================================================== */
+
+  scenes.forEach((scene, index) => {
+
+    gsap.set(scene, {
+      autoAlpha: index === 0 ? 1 : 0
+    });
+
+    gsap.set(
+      scene.querySelector(".wj-image"),
+      {
+        scale: 1
+      }
+    );
+
+    gsap.set(
+      scene.querySelector("img"),
+      {
+        scale: 1.06,
+        xPercent: 0,
+        yPercent: 0,
+        rotationZ: 0,
+        rotationY: 0
+      }
+    );
+
+    gsap.set(
+      scene.querySelector(".wj-copy"),
+      {
+        autoAlpha: index === 0 ? 1 : 0,
+        x: index === 0 ? 0 : -80
+      }
+    );
+
+  });
+
+
+  /* =====================================================
+     MASTER TIMELINE
+  ===================================================== */
+
+  const tl =
+    gsap.timeline({
+
+      defaults:{
+        ease:"none"
+      },
+
+      scrollTrigger:{
+
+        trigger:journey,
+
+        start:"top top",
+
+        end:"bottom bottom",
+
+        scrub:1.2,
+
+        pin:stage,
+
+        pinSpacing:false,
+
+        anticipatePin:1,
+
+        invalidateOnRefresh:true
+
+      }
+
+    });
+
+
+  /* =====================================================
+     SCENE CREATOR
+  ===================================================== */
+
+  function addScene(
+    scene,
+    position
+  ){
+
+    const image =
+      scene.querySelector("img");
+
+    const copy =
+      scene.querySelector(".wj-copy");
+
+
+    /* ENTER */
+
+    tl.to(
+      scene,
+      {
+        autoAlpha:1,
+        duration:.18
+      },
+      position
+    );
+
+
+    /* TEXT ENTER */
+
+    tl.fromTo(
+      copy,
+      {
+        autoAlpha:0,
+        x:-80
+      },
+      {
+        autoAlpha:1,
+        x:0,
+        duration:.24,
+        ease:"power2.out"
+      },
+      position + .03
+    );
+
+
+    /* IMAGE CAMERA MOVE */
+
+    tl.to(
+      image,
+      {
+        scale:1.28,
+        xPercent:-2,
+        yPercent:-2,
+        rotationY:2,
+        rotationZ:.25,
+
+        duration:.72,
+
+        ease:"none"
+      },
+      position
+    );
+
+
+    /* TEXT HOLD */
+
+    tl.to(
+      copy,
+      {
+        autoAlpha:1,
+        duration:.25
+      },
+      position + .25
+    );
+
+
+    /* EXIT */
+
+    tl.to(
+      copy,
+      {
+        autoAlpha:0,
+        x:80,
+        duration:.17,
+        ease:"power2.in"
+      },
+      position + .72
+    );
+
+
+    /* IMAGE EXIT */
+
+    tl.to(
+      image,
+      {
+        scale:1.48,
+        xPercent:5,
+        yPercent:-3,
+        rotationY:-4,
+        rotationZ:-.5,
+        autoAlpha:.15,
+
+        duration:.28,
+
+        ease:"power2.in"
+      },
+      position + .72
+    );
+
+
+    /* HIDE */
+
+    tl.set(
+      scene,
+      {
+        autoAlpha:0
+      },
+      position + 1
+    );
+
+  }
+
+
+  /* =====================================================
+     BUILD FIVE CHAPTERS
+  ===================================================== */
+
+  addScene(
+    scenes[0],
+    0
+  );
+
+  addScene(
+    scenes[1],
+    1
+  );
+
+  addScene(
+    scenes[2],
+    2
+  );
+
+  addScene(
+    scenes[3],
+    3
+  );
+
+  addScene(
+    scenes[4],
+    4
+  );
+
+
+  /* =====================================================
+     ENDING
+  ===================================================== */
+
+  tl.to(
+    ending,
+    {
+      autoAlpha:1,
+      duration:.3
+    },
+    5
+  );
+
+
+  tl.fromTo(
+    ending,
+    {
+      scale:.94
+    },
+    {
+      scale:1,
+      duration:.6,
+      ease:"power2.out"
+    },
+    5
+  );
+
+
+  /* =====================================================
+     PROGRESS NUMBER
+  ===================================================== */
+
+  ScrollTrigger.create({
+
+    trigger:journey,
+
+    start:"top top",
+
+    end:"bottom bottom",
+
+    onUpdate:self=>{
+
+      const total = 5;
+
+      const current =
+        Math.min(
+          total,
+          Math.max(
+            1,
+            Math.floor(
+              self.progress * total
+            ) + 1
+          )
+        );
+
+      if(progressNumber){
+
+        progressNumber.textContent =
+          String(current).padStart(2,"0");
+
+      }
+
+    }
+
+  });
+
+
+  /* =====================================================
+     REFRESH AFTER IMAGES LOAD
+  ===================================================== */
+
+  window.addEventListener(
+    "load",
+    () => {
+      ScrollTrigger.refresh();
+    }
+  );
+
+});
