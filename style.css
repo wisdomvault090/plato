@@ -1959,3 +1959,87 @@ font-size:1.5rem;
     width: 100% !important;
   }
 }
+/* ===== PREMIUM GLASS BUTTONS ===== */
+
+.luxury-btn{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 32px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    color: var(--ivory);
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: all .35s ease;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.12),
+    inset 0 -1px 1px rgba(0,0,0,.25);
+}
+
+.luxury-btn::before{
+    content:"";
+    position:absolute;
+
+    width:200%;
+    height:200%;
+
+    top:-50%;
+    left:-50%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,.22) 50%,
+        transparent 70%
+    );
+
+    transform: rotate(20deg);
+    transition:.7s;
+}
+
+.luxury-btn:hover{
+    transform: translateY(-3px);
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.45),
+    inset 0 1px 1px rgba(255,255,255,.15);
+}
+
+.luxury-btn:hover::before{
+    left:100%;
+}
+
+.luxury-btn:active{
+    transform: scale(.96);
+}
+
+@media(max-width:768px){
+
+    .luxury-btn{
+        width:100%;
+        max-width:280px;
+        padding:14px 20px;
+        font-size:.9rem;
+    }
+
+}
