@@ -2026,268 +2026,419 @@ font-size:1.5rem;
 
 }
 /* =========================================================
-   WISDOM VAULT — THE GALLERY
-   REAL SCROLL DRIVEN VERSION
+   WISDOM VAULT — CINEMATIC WISDOM JOURNEY
+   GSAP SCROLLTRIGGER
 ========================================================= */
 
-.vault-gallery{
+.wisdom-journey{
   position:relative;
+
   width:100%;
-  height:500svh;
+
+  /*
+    Long scroll distance.
+    GSAP pins the stage while the story plays.
+  */
+  min-height:560vh;
+
   margin:0;
   padding:0 !important;
-  background:var(--obsidian);
+
+  background:#050504;
 }
 
 
 /* =========================================================
-   STICKY STAGE
+   STAGE
 ========================================================= */
 
-.vg-stage{
-  position:sticky;
-  top:0;
+.wj-stage{
+  position:relative;
 
   width:100%;
-  height:100svh;
-  min-height:600px;
-
-  padding:10px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    2fr
-    100px
-    2fr
-    1fr;
-
-  grid-template-rows:
-    1fr
-    100px
-    1fr;
-
-  grid-template-areas:
-    "one two two three four"
-    "one six center three eight"
-    "five six seven seven eight";
-
-  gap:10px;
-
-  background:var(--obsidian);
+  height:100vh;
 
   overflow:hidden;
+
+  background:#050504;
+
+  perspective:1200px;
 }
 
 
 /* =========================================================
-   LABEL
+   SCENES
 ========================================================= */
 
-.vg-label{
+.wj-scene{
   position:absolute;
-  top:28px;
-  left:30px;
 
-  z-index:50;
+  inset:0;
 
-  color:var(--ivory);
+  width:100%;
+  height:100%;
 
-  font-family:var(--sans);
-  font-size:.62rem;
-  letter-spacing:.28em;
-  text-transform:uppercase;
+  overflow:hidden;
 
-  opacity:.7;
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  background:#050504;
+
+  transform-style:preserve-3d;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.wj-image{
+  position:absolute;
+
+  inset:-8%;
+
+  z-index:1;
+
+  overflow:hidden;
+
+  transform-style:preserve-3d;
+}
+
+
+.wj-image img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  filter:
+    brightness(.58)
+    contrast(1.08)
+    saturate(.72);
+
+  transform:
+    scale(1.05)
+    translateZ(0);
+
+  will-change:
+    transform,
+    filter;
+}
+
+
+/* =========================================================
+   DARK CINEMATIC OVERLAY
+========================================================= */
+
+.wj-overlay{
+  position:absolute;
+
+  inset:0;
+
+  z-index:2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,4,3,.82) 0%,
+      rgba(5,4,3,.42) 48%,
+      rgba(5,4,3,.76) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(5,4,3,.18),
+      rgba(5,4,3,.72)
+    );
 
   pointer-events:none;
 }
 
 
 /* =========================================================
-   PANELS
+   COPY
 ========================================================= */
 
-.vg-panel{
-  position:relative;
+.wj-copy{
+  position:absolute;
 
-  min-width:0;
-  min-height:0;
+  z-index:5;
 
-  background-image:var(--bg);
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  left:9vw;
 
-  overflow:hidden;
+  top:50%;
 
-  will-change:transform;
+  width:min(650px,72vw);
 
-  transform:translate(0,0);
+  transform:
+    translateY(-50%)
+    translateX(-80px);
 
-  transition:none;
+  opacity:0;
+
+  will-change:
+    transform,
+    opacity;
 }
 
 
-/* =========================================================
-   GRID POSITIONS
-========================================================= */
-
-.vg-1{
-  grid-area:one;
-}
-
-.vg-2{
-  grid-area:two;
-}
-
-.vg-3{
-  grid-area:three;
-}
-
-.vg-4{
-  grid-area:four;
-}
-
-.vg-5{
-  grid-area:five;
-}
-
-.vg-6{
-  grid-area:six;
-}
-
-.vg-7{
-  grid-area:seven;
-}
-
-.vg-8{
-  grid-area:eight;
-}
-
-
-/* =========================================================
-   CENTER
-========================================================= */
-
-.vg-center{
-  grid-area:center;
-
-  position:relative;
-  z-index:10;
-
-  width:600px;
-  aspect-ratio:1 / 1;
-
-  align-self:center;
-  justify-self:center;
-
-  display:grid;
-  place-items:center;
-
-  overflow:hidden;
-
-  color:var(--ivory);
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(169,131,90,.18),
-      rgba(10,9,8,.97) 68%
-    );
-
-  border:1px solid rgba(169,131,90,.4);
-
-  will-change:transform,width;
-}
-
-
-/* =========================================================
-   CENTER CONTENT
-========================================================= */
-
-.vg-content{
-  width:76%;
-
-  text-align:center;
-
-  will-change:transform,opacity;
-}
-
-.vg-content span{
+.wj-copy span{
   display:block;
 
-  margin-bottom:16px;
+  margin-bottom:1.4rem;
 
   color:var(--bronze);
 
   font-family:var(--sans);
-  font-size:.58rem;
-  letter-spacing:.34em;
+
+  font-size:.62rem;
+
+  letter-spacing:.32em;
+
   text-transform:uppercase;
 }
 
-.vg-content h2{
+
+.wj-copy h2{
   margin:0;
 
   color:var(--ivory);
 
   font-family:var(--serif);
-  font-size:clamp(2.6rem,5vw,5rem);
+
+  font-size:
+    clamp(
+      3.5rem,
+      7vw,
+      8rem
+    );
+
   font-weight:400;
 
-  line-height:.85;
+  line-height:.86;
+
+  letter-spacing:-.035em;
 }
 
-.vg-content p{
-  max-width:290px;
 
-  margin:24px auto 0;
+.wj-copy p{
+  max-width:540px;
 
-  color:var(--marble);
+  margin-top:2rem;
+
+  color:rgba(242,237,226,.78);
+
+  font-family:var(--serif);
+
+  font-size:
+    clamp(
+      1.2rem,
+      2vw,
+      1.65rem
+    );
+
+  font-style:italic;
+
+  line-height:1.5;
+}
+
+
+.wj-copy small{
+  display:block;
+
+  margin-top:1.1rem;
+
+  color:var(--bronze);
 
   font-family:var(--sans);
-  font-size:.76rem;
-  line-height:1.7;
+
+  font-size:.65rem;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
 }
 
 
 /* =========================================================
-   MOUSE
+   FIRST SCENE
 ========================================================= */
 
-.vg-mouse{
-  position:absolute;
-
-  left:50%;
-  bottom:8%;
-
-  width:24px;
-  height:38px;
-
-  transform:translateX(-50%);
-
-  border:1px solid rgba(242,237,226,.55);
-  border-radius:20px;
-
-  will-change:opacity,transform;
+.scene-1{
+  opacity:1;
+  visibility:visible;
 }
 
-.vg-mouse i{
+
+/* =========================================================
+   FINAL ENDING
+========================================================= */
+
+.wj-ending{
   position:absolute;
 
-  top:7px;
-  left:50%;
+  inset:0;
 
-  width:3px;
-  height:7px;
+  z-index:20;
 
-  transform:translateX(-50%);
+  display:flex;
 
-  border-radius:10px;
+  flex-direction:column;
 
-  background:var(--bronze);
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(169,131,90,.13),
+      transparent 36%
+    ),
+    #050504;
+}
+
+
+.wj-ending > span{
+  color:var(--bronze);
+
+  font-family:var(--sans);
+
+  font-size:.62rem;
+
+  letter-spacing:.34em;
+
+  text-transform:uppercase;
+}
+
+
+.wj-ending h2{
+  margin-top:1.5rem;
+
+  color:var(--ivory);
+
+  font-family:var(--serif);
+
+  font-size:
+    clamp(
+      4rem,
+      9vw,
+      9rem
+    );
+
+  font-weight:400;
+
+  line-height:.82;
+
+  letter-spacing:-.04em;
+}
+
+
+.wj-ending p{
+  margin-top:2rem;
+
+  color:var(--marble);
+
+  font-family:var(--serif);
+
+  font-style:italic;
+
+  font-size:1.2rem;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.wj-progress{
+  position:absolute;
+
+  right:3vw;
+
+  top:50%;
+
+  z-index:100;
+
+  transform:translateY(-50%);
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:10px;
+
+  color:var(--marble);
+
+  font-family:var(--sans);
+
+  pointer-events:none;
+}
+
+
+.wj-progress-line{
+  width:1px;
+
+  height:90px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--bronze),
+      transparent
+    );
+}
+
+
+.wj-progress-number{
+  color:var(--ivory);
+
+  font-size:.7rem;
+
+  letter-spacing:.12em;
+}
+
+
+.wj-progress-total{
+  color:rgba(242,237,226,.35);
+
+  font-size:.55rem;
+
+  letter-spacing:.1em;
+}
+
+
+/* =========================================================
+   DESKTOP DEPTH
+========================================================= */
+
+@media(min-width:801px){
+
+  .wj-scene:nth-child(even) .wj-image img{
+    transform:
+      scale(1.08)
+      translate3d(2%,0,0);
+  }
+
 }
 
 
@@ -2297,85 +2448,170 @@ font-size:1.5rem;
 
 @media(max-width:800px){
 
-  .vault-gallery{
-    height:420svh;
+  .wisdom-journey{
+    min-height:620vh;
   }
 
-  .vg-stage{
-    min-height:580px;
 
-    grid-template-columns:
-      1fr
-      1.8fr
-      55px
-      1.8fr
-      1fr;
+  .wj-stage{
+    height:100svh;
 
-    grid-template-rows:
-      1fr
-      55px
-      1fr;
-
-    gap:5px;
-    padding:5px;
+    min-height:560px;
   }
 
-  .vg-label{
-    top:20px;
-    left:20px;
-    font-size:.5rem;
+
+  .wj-image{
+    inset:-5%;
+
   }
 
-  .vg-content h2{
-    font-size:clamp(2rem,9vw,3.5rem);
+
+  .wj-image img{
+    object-position:center;
+
+    filter:
+      brightness(.48)
+      contrast(1.06)
+      saturate(.7);
   }
 
-  .vg-content p{
-    font-size:.62rem;
-    max-width:210px;
+
+  .wj-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,4,3,.22),
+        rgba(5,4,3,.45) 40%,
+        rgba(5,4,3,.9) 100%
+      );
   }
 
-  .vg-content span{
+
+  .wj-copy{
+
+    left:7vw;
+
+    top:auto;
+
+    bottom:14vh;
+
+    width:86vw;
+
+    transform:
+      translateY(40px);
+
+  }
+
+
+  .wj-copy span{
+    margin-bottom:1rem;
+
     font-size:.48rem;
+
+    letter-spacing:.24em;
   }
+
+
+  .wj-copy h2{
+    font-size:
+      clamp(
+        2.8rem,
+        12vw,
+        5rem
+      );
+
+    line-height:.9;
+  }
+
+
+  .wj-copy p{
+
+    margin-top:1.3rem;
+
+    font-size:1.05rem;
+
+    line-height:1.45;
+
+  }
+
+
+  .wj-copy small{
+
+    margin-top:.8rem;
+
+    font-size:.52rem;
+
+  }
+
+
+  .wj-progress{
+
+    right:5vw;
+
+    top:auto;
+
+    bottom:5vh;
+
+    transform:none;
+
+    flex-direction:row;
+
+  }
+
+
+  .wj-progress-line{
+
+    width:55px;
+
+    height:1px;
+
+  }
+
+
+  .wj-ending h2{
+
+    font-size:
+      clamp(
+        3.4rem,
+        14vw,
+        6rem
+      );
+
+  }
+
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   REDUCE MOTION
 ========================================================= */
 
-@media(max-width:480px){
+@media(prefers-reduced-motion:reduce){
 
-  .vault-gallery{
-    height:380svh;
+  .wj-scene{
+    position:relative;
+
+    inset:auto;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    margin-bottom:2rem;
   }
 
-  .vg-stage{
-    min-height:520px;
-
-    grid-template-columns:
-      1fr
-      1.5fr
-      40px
-      1.5fr
-      1fr;
-
-    grid-template-rows:
-      1fr
-      40px
-      1fr;
-
-    gap:3px;
-    padding:3px;
+  .wisdom-journey{
+    min-height:auto;
   }
 
-  .vg-content h2{
-    font-size:1.8rem;
+  .wj-stage{
+    height:auto;
+    overflow:visible;
   }
 
-  .vg-content p{
-    font-size:.55rem;
-    max-width:170px;
+  .wj-progress,
+  .wj-ending{
+    display:none;
   }
+
 }
