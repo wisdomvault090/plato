@@ -2027,44 +2027,34 @@ font-size:1.5rem;
 }
 /* =========================================================
    WISDOM VAULT — THE GALLERY
-   Scroll Driven Image Reveal
-   ========================================================= */
+   REAL SCROLL DRIVEN VERSION
+========================================================= */
 
-.vault-gallery {
-  --vg-gap: 10px;
-
-  position: relative;
-
-  width: 100%;
-  height: 500svh;
-
-  margin: 0;
-  padding: 0 !important;
-
-  background: var(--obsidian);
-
-  overflow: clip;
+.vault-gallery{
+  position:relative;
+  width:100%;
+  height:500svh;
+  margin:0;
+  padding:0 !important;
+  background:var(--obsidian);
 }
 
 
 /* =========================================================
    STICKY STAGE
-   ========================================================= */
+========================================================= */
 
-.vg-stage {
+.vg-stage{
+  position:sticky;
+  top:0;
 
-  position: sticky;
+  width:100%;
+  height:100svh;
+  min-height:600px;
 
-  top: 0;
+  padding:10px;
 
-  width: 100%;
-  height: 100svh;
-
-  min-height: 600px;
-
-  padding: var(--vg-gap);
-
-  display: grid;
+  display:grid;
 
   grid-template-columns:
     1fr
@@ -2079,459 +2069,240 @@ font-size:1.5rem;
     1fr;
 
   grid-template-areas:
-
     "one two two three four"
-
     "one six center three eight"
-
     "five six seven seven eight";
 
-  gap: var(--vg-gap);
+  gap:10px;
 
-  background: var(--obsidian);
+  background:var(--obsidian);
+
+  overflow:hidden;
 }
 
 
 /* =========================================================
    LABEL
-   ========================================================= */
+========================================================= */
 
-.vg-label {
+.vg-label{
+  position:absolute;
+  top:28px;
+  left:30px;
 
-  position: absolute;
+  z-index:50;
 
-  top: 28px;
-  left: 30px;
+  color:var(--ivory);
 
-  z-index: 50;
+  font-family:var(--sans);
+  font-size:.62rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
 
-  color: var(--ivory);
+  opacity:.7;
 
-  font-family: var(--sans);
-
-  font-size: .62rem;
-
-  letter-spacing: .28em;
-
-  text-transform: uppercase;
-
-  opacity: .7;
-
-  pointer-events: none;
+  pointer-events:none;
 }
 
 
 /* =========================================================
-   IMAGE PANELS
-   ========================================================= */
+   PANELS
+========================================================= */
 
-.vg-panel {
+.vg-panel{
+  position:relative;
 
-  position: relative;
+  min-width:0;
+  min-height:0;
 
-  min-width: 0;
-  min-height: 0;
+  background-image:var(--bg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 
-  background-image: var(--bg);
+  overflow:hidden;
 
-  background-size: cover;
+  will-change:transform;
 
-  background-position: center;
+  transform:translate(0,0);
 
-  background-repeat: no-repeat;
-
-  overflow: hidden;
-
-  will-change: transform;
-
-  animation-duration: 1ms;
-
-  animation-timing-function: linear;
-
-  animation-fill-mode: both;
-
-  animation-timeline: scroll(root);
+  transition:none;
 }
 
 
 /* =========================================================
-   STARTING POSITIONS
-   ========================================================= */
+   GRID POSITIONS
+========================================================= */
 
-.vg-1 {
-
-  grid-area: one;
-
-  --vg-x: -500%;
-  --vg-y: -200%;
+.vg-1{
+  grid-area:one;
 }
 
-
-.vg-2 {
-
-  grid-area: two;
-
-  --vg-x: -75%;
-  --vg-y: -200%;
+.vg-2{
+  grid-area:two;
 }
 
-
-.vg-3 {
-
-  grid-area: three;
-
-  --vg-x: 200%;
-  --vg-y: 0%;
+.vg-3{
+  grid-area:three;
 }
 
-
-.vg-4 {
-
-  grid-area: four;
-
-  --vg-x: 500%;
-  --vg-y: -200%;
+.vg-4{
+  grid-area:four;
 }
 
-
-.vg-5 {
-
-  grid-area: five;
-
-  --vg-x: -500%;
-  --vg-y: 100%;
+.vg-5{
+  grid-area:five;
 }
 
-
-.vg-6 {
-
-  grid-area: six;
-
-  --vg-x: -200%;
-  --vg-y: 0%;
+.vg-6{
+  grid-area:six;
 }
 
-
-.vg-7 {
-
-  grid-area: seven;
-
-  --vg-x: 75%;
-  --vg-y: 200%;
+.vg-7{
+  grid-area:seven;
 }
 
-
-.vg-8 {
-
-  grid-area: eight;
-
-  --vg-x: 500%;
-  --vg-y: 200%;
-}
-
-
-/* =========================================================
-   SLIDE ANIMATION
-   ========================================================= */
-
-.vg-panel {
-
-  animation-name: vg-panels;
-}
-
-
-@keyframes vg-panels {
-
-  0%,
-  12% {
-
-    translate:
-      var(--vg-x)
-      var(--vg-y);
-  }
-
-  100% {
-
-    translate:
-      0
-      0;
-  }
+.vg-8{
+  grid-area:eight;
 }
 
 
 /* =========================================================
    CENTER
-   ========================================================= */
+========================================================= */
 
-.vg-center {
+.vg-center{
+  grid-area:center;
 
-  grid-area: center;
+  position:relative;
+  z-index:10;
 
-  position: relative;
+  width:600px;
+  aspect-ratio:1 / 1;
 
-  z-index: 10;
+  align-self:center;
+  justify-self:center;
 
-  width: 600px;
+  display:grid;
+  place-items:center;
 
-  aspect-ratio: 1 / 1;
+  overflow:hidden;
 
-  align-self: center;
-  justify-self: center;
-
-  display: grid;
-
-  place-items: center;
-
-  overflow: hidden;
-
-  color: var(--ivory);
+  color:var(--ivory);
 
   background:
-
     radial-gradient(
       circle at center,
-
       rgba(169,131,90,.18),
-
       rgba(10,9,8,.97) 68%
     );
 
-  border:
+  border:1px solid rgba(169,131,90,.4);
 
-    1px solid
-    rgba(169,131,90,.4);
-
-  will-change: transform, width;
-
-  animation-name: vg-center;
-
-  animation-duration: 1ms;
-
-  animation-timing-function: linear;
-
-  animation-fill-mode: both;
-
-  animation-timeline: scroll(root);
-}
-
-
-@keyframes vg-center {
-
-  0% {
-
-    width: 600px;
-
-    transform:
-      translate(-250px,-250px);
-  }
-
-  25%,
-  65% {
-
-    width: 300px;
-
-    transform:
-      translate(-100px,-100px);
-  }
-
-  100% {
-
-    width: 100px;
-
-    transform:
-      translate(0,0);
-  }
+  will-change:transform,width;
 }
 
 
 /* =========================================================
    CENTER CONTENT
-   ========================================================= */
+========================================================= */
 
-.vg-content {
+.vg-content{
+  width:76%;
 
-  width: 76%;
+  text-align:center;
 
-  text-align: center;
-
-  animation-name: vg-content;
-
-  animation-duration: 1ms;
-
-  animation-timing-function: linear;
-
-  animation-fill-mode: both;
-
-  animation-timeline: scroll(root);
+  will-change:transform,opacity;
 }
 
+.vg-content span{
+  display:block;
 
-.vg-content span {
+  margin-bottom:16px;
 
-  display: block;
+  color:var(--bronze);
 
-  margin-bottom: 16px;
-
-  color: var(--bronze);
-
-  font-family: var(--sans);
-
-  font-size: .58rem;
-
-  letter-spacing: .34em;
-
-  text-transform: uppercase;
+  font-family:var(--sans);
+  font-size:.58rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
 }
 
+.vg-content h2{
+  margin:0;
 
-.vg-content h2 {
+  color:var(--ivory);
 
-  margin: 0;
+  font-family:var(--serif);
+  font-size:clamp(2.6rem,5vw,5rem);
+  font-weight:400;
 
-  color: var(--ivory);
-
-  font-family: var(--serif);
-
-  font-size:
-    clamp(2.6rem, 5vw, 5rem);
-
-  font-weight: 400;
-
-  line-height: .85;
+  line-height:.85;
 }
 
+.vg-content p{
+  max-width:290px;
 
-.vg-content p {
+  margin:24px auto 0;
 
-  max-width: 290px;
+  color:var(--marble);
 
-  margin: 24px auto 0;
-
-  color: var(--marble);
-
-  font-family: var(--sans);
-
-  font-size: .76rem;
-
-  line-height: 1.7;
-}
-
-
-@keyframes vg-content {
-
-  0%,
-  52% {
-
-    opacity: 1;
-
-    scale: 1;
-  }
-
-  68%,
-  100% {
-
-    opacity: 0;
-
-    scale: .8;
-  }
+  font-family:var(--sans);
+  font-size:.76rem;
+  line-height:1.7;
 }
 
 
 /* =========================================================
-   MOUSE / SCROLL INDICATOR
-   ========================================================= */
+   MOUSE
+========================================================= */
 
-.vg-mouse {
+.vg-mouse{
+  position:absolute;
 
-  position: absolute;
+  left:50%;
+  bottom:8%;
 
-  left: 50%;
+  width:24px;
+  height:38px;
 
-  bottom: 8%;
+  transform:translateX(-50%);
 
-  width: 24px;
+  border:1px solid rgba(242,237,226,.55);
+  border-radius:20px;
 
-  height: 38px;
-
-  transform:
-    translateX(-50%);
-
-  border:
-    1px solid
-    rgba(242,237,226,.55);
-
-  border-radius: 20px;
-
-  animation-name: vg-mouse-animation;
-
-  animation-duration: 1ms;
-
-  animation-timing-function: linear;
-
-  animation-fill-mode: both;
-
-  animation-timeline: scroll(root);
+  will-change:opacity,transform;
 }
 
+.vg-mouse i{
+  position:absolute;
 
-.vg-mouse i {
+  top:7px;
+  left:50%;
 
-  position: absolute;
+  width:3px;
+  height:7px;
 
-  top: 7px;
+  transform:translateX(-50%);
 
-  left: 50%;
+  border-radius:10px;
 
-  width: 3px;
-
-  height: 7px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius: 10px;
-
-  background: var(--bronze);
-}
-
-
-@keyframes vg-mouse-animation {
-
-  0%,
-  70% {
-
-    opacity: 1;
-
-    transform:
-      translateX(-50%);
-  }
-
-  100% {
-
-    opacity: 0;
-
-    transform:
-      translateX(-50%)
-      rotate(180deg);
-  }
+  background:var(--bronze);
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 800px) {
+@media(max-width:800px){
 
-  .vault-gallery {
-
-    height: 420svh;
+  .vault-gallery{
+    height:420svh;
   }
 
-
-  .vg-stage {
-
-    min-height: 580px;
+  .vg-stage{
+    min-height:580px;
 
     grid-template-columns:
       1fr
@@ -2545,97 +2316,43 @@ font-size:1.5rem;
       55px
       1fr;
 
-    gap: 5px;
-
-    padding: 5px;
+    gap:5px;
+    padding:5px;
   }
 
-
-  .vg-label {
-
-    top: 20px;
-
-    left: 20px;
-
-    font-size: .5rem;
+  .vg-label{
+    top:20px;
+    left:20px;
+    font-size:.5rem;
   }
 
-
-  .vg-center {
-
-    width: 360px;
-
-    animation-name:
-      vg-center-mobile;
+  .vg-content h2{
+    font-size:clamp(2rem,9vw,3.5rem);
   }
 
-
-  @keyframes vg-center-mobile {
-
-    0% {
-
-      width: 360px;
-
-      transform:
-        translate(-150px,-150px);
-    }
-
-    25%,
-    65% {
-
-      width: 220px;
-
-      transform:
-        translate(-70px,-70px);
-    }
-
-    100% {
-
-      width: 55px;
-
-      transform:
-        translate(0,0);
-    }
+  .vg-content p{
+    font-size:.62rem;
+    max-width:210px;
   }
 
-
-  .vg-content h2 {
-
-    font-size:
-      clamp(2rem, 9vw, 3.5rem);
-  }
-
-
-  .vg-content p {
-
-    font-size: .62rem;
-
-    max-width: 210px;
-  }
-
-
-  .vg-content span {
-
-    font-size: .48rem;
+  .vg-content span{
+    font-size:.48rem;
   }
 }
 
 
 /* =========================================================
    SMALL PHONES
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 480px) {
+@media(max-width:480px){
 
-  .vault-gallery {
-
-    height: 380svh;
+  .vault-gallery{
+    height:380svh;
   }
 
-
-  .vg-stage {
-
-    min-height: 520px;
+  .vg-stage{
+    min-height:520px;
 
     grid-template-columns:
       1fr
@@ -2649,102 +2366,16 @@ font-size:1.5rem;
       40px
       1fr;
 
-    gap: 3px;
-
-    padding: 3px;
+    gap:3px;
+    padding:3px;
   }
 
-
-  .vg-center {
-
-    width: 280px;
-
-    animation-name:
-      vg-center-small;
+  .vg-content h2{
+    font-size:1.8rem;
   }
 
-
-  @keyframes vg-center-small {
-
-    0% {
-
-      width: 280px;
-
-      transform:
-        translate(-100px,-100px);
-    }
-
-    25%,
-    65% {
-
-      width: 160px;
-
-      transform:
-        translate(-50px,-50px);
-    }
-
-    100% {
-
-      width: 40px;
-
-      transform:
-        translate(0,0);
-    }
-  }
-
-
-  .vg-content h2 {
-
-    font-size: 1.8rem;
-  }
-
-
-  .vg-content p {
-
-    font-size: .55rem;
-
-    max-width: 170px;
-  }
-}
-
-
-/* =========================================================
-   FALLBACK
-   ========================================================= */
-
-/*
-   If the browser does not support scroll-driven
-   animation, keep the gallery visible instead of
-   breaking the website.
-*/
-
-@supports not (animation-timeline: scroll()) {
-
-  .vg-panel {
-
-    translate: 0 0;
-
-    animation: none;
-  }
-
-  .vg-center {
-
-    width: min(600px, 80vw);
-
-    transform: none;
-
-    animation: none;
-  }
-
-  .vg-content {
-
-    opacity: 1;
-
-    animation: none;
-  }
-
-  .vg-mouse {
-
-    animation: none;
+  .vg-content p{
+    font-size:.55rem;
+    max-width:170px;
   }
 }
